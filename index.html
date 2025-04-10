@@ -1,108 +1,53 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2025 봄 한국 여행</title>
+  <title>2025 봄 한국 여행 – Naver 지도 미리보기</title>
   <style>
     body { font-family: sans-serif; background: #f9fafb; padding: 2rem; line-height: 1.6; }
     h1 { font-size: 2rem; text-align: center; margin-bottom: 2rem; }
-    h2 { margin-top: 3rem; font-size: 1.5rem; border-bottom: 1px solid #ccc; padding-bottom: 0.5rem; cursor: pointer; }
-    table { width: 100%; border-collapse: collapse; background: white; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 2rem; }
-    th, td { padding: 1rem; border: 1px solid #e5e7eb; text-align: left; }
-    th { background: #f3f4f6; }
-    iframe { width: 100%; height: 300px; border: none; border-radius: 6px; margin-top: 0.5rem; }
-    .section { margin-top: 4rem; }
-    .collapsible { display: none; }
+    h2 { font-size: 1.3rem; color: #111827; margin-top: 2.5rem; }
+    .map-block { margin-top: 0.5rem; border-radius: 8px; overflow: hidden; border: 1px solid #ddd; }
+    iframe { width: 100%; height: 360px; border: 0; }
+    p { margin: 0.5rem 0; }
   </style>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const headers = document.querySelectorAll("h2");
-      headers.forEach(h => {
-        const section = h.nextElementSibling;
-        if (section) {
-          h.addEventListener("click", () => {
-            section.classList.toggle("collapsible");
-          });
-        }
-      });
-    });
-  </script>
 </head>
 <body>
-  <h1>🌏 2025 봄 한국 여행</h1>
+  <h1>📍 2025 봄 한국 여행 – Naver 지도 미리보기</h1>
 
-  <h2>🗓️ 일정표 + 지도 미리보기</h2>
-  <div>
-    <table>
-      <thead>
-        <tr><th>날짜</th><th>도시</th><th>주소</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>4/22–24</td><td>수원</td>
-          <td>
-            경기도 수원시 장안구 만석로20번길 25<br>
-            <iframe src="https://map.naver.com/v5/search/경기도 수원시 장안구 만석로20번길 25"></iframe>
-          </td>
-        </tr>
-        <tr>
-          <td>4/24–5/3</td><td>서울</td>
-          <td>
-            서울 마포구 창전로 26<br>
-            <iframe src="https://map.naver.com/v5/search/서울 마포구 창전로 26"></iframe>
-          </td>
-        </tr>
-        <tr>
-          <td>5/3</td><td>광주</td>
-          <td>
-            광주광역시 광산구 상무대로205번길 6<br>
-            <iframe src="https://map.naver.com/v5/search/광주광역시 광산구 상무대로205번길 6"></iframe>
-          </td>
-        </tr>
-        <tr>
-          <td>5/3–4</td><td>광주</td>
-          <td>
-            광주광역시 서구 시청로 53<br>
-            <iframe src="https://map.naver.com/v5/search/광주 서구 시청로 53"></iframe>
-          </td>
-        </tr>
-        <tr>
-          <td>5/4–6</td><td>보성</td>
-          <td>
-            전라남도 보성군 봉내면 개기로 1529-45<br>
-            <iframe src="https://map.naver.com/v5/search/전라남도 보성군 복내면 개기로 1529-45"></iframe>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <h2>4/22–24 수원</h2>
+  <p>경기도 수원시 장안구 만석로20번길 25</p>
+  <div class="map-block"><iframe src="https://map.naver.com/v5/search/경기도 수원시 장안구 만석로20번길 25" allowfullscreen></iframe></div>
 
-  <h2>🛬 휴가와 헤어코미션</h2>
-  <div class="collapsible">
-    <ul>
-      <li>4/21: Appleton 출발 ✈️ DL4949 / 확인번호: HKHSTV</li>
-      <li>4/22: Incheon 도착 ✈️ DL0171 / 5:20 p.m.</li>
-      <li>5/13: Incheon 출구 ✈️ DL0170 / 6:40 p.m. Terminal 2</li>
-      <li>5/3: 서울 → 광주 고속번역 / 기준시간 9:30 a.m.</li>
-    </ul>
-  </div>
+  <h2>4/24–5/3 서울</h2>
+  <p>서울 마포구 창전로 26</p>
+  <div class="map-block"><iframe src="https://map.naver.com/v5/search/서울 마포구 창전로 26" allowfullscreen></iframe></div>
 
-  <h2>🍽 식사 메뉴 (서울 4/24)</h2>
-  <div class="collapsible">
-    <ul>
-      <li>뒤깨수제비</li>
-      <li>황금콩밥</li>
-      <li>DUBU Heaven</li>
-    </ul>
-  </div>
+  <h2>5/3 광주</h2>
+  <p>광주광역시 광산구 상무대로205번길 6</p>
+  <div class="map-block"><iframe src="https://map.naver.com/v5/search/광주광역시 광산구 상무대로205번길 6" allowfullscreen></iframe></div>
 
-  <h2>🏋️‍♀️ 스킨컴 (홍대)</h2>
-  <div class="collapsible">
-    <ul>
-      <li>re-ele clinic, 홍대</li>
-    </ul>
-  </div>
+  <h2>5/3–4 광주</h2>
+  <p>광주 서구 시청로 53</p>
+  <div class="map-block"><iframe src="https://map.naver.com/v5/search/광주 서구 시청로 53" allowfullscreen></iframe></div>
+
+  <h2>5/4–6 보성</h2>
+  <p>전라남도 보성군 복내면 개기로 1529-45</p>
+  <div class="map-block"><iframe src="https://map.naver.com/v5/search/전라남도 보성군 복내면 개기로 1529-45" allowfullscreen></iframe></div>
+
+  <h2>5/6–7 광주</h2>
+  <p>광주광역시 광산구 상무대로205번길 6</p>
+  <div class="map-block"><iframe src="https://map.naver.com/v5/search/광주광역시 광산구 상무대로205번길 6" allowfullscreen></iframe></div>
+
+  <h2>5/7–10 서울</h2>
+  <p>서울 마포구 창전로 26</p>
+  <div class="map-block"><iframe src="https://map.naver.com/v5/search/서울 마포구 창전로 26" allowfullscreen></iframe></div>
+
+  <h2>5/11–13 수원</h2>
+  <p>경기도 수원시 장안구 만석로20번길 25</p>
+  <div class="map-block"><iframe src="https://map.naver.com/v5/search/경기도 수원시 장안구 만석로20번길 25" allowfullscreen></iframe></div>
 
 </body>
 </html>
