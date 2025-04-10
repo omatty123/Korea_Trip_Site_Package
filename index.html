@@ -4,83 +4,136 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2025 봄 한국 여행 일정</title>
+  <title>2025 봄 한국 여행</title>
   <style>
     body { font-family: sans-serif; padding: 2rem; background: #f9fafb; line-height: 1.6; }
-    h1 { font-size: 2rem; margin-bottom: 1.5rem; }
-    h2 { margin-top: 2rem; font-size: 1.25rem; color: #111827; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; }
-    .map-embed { margin: 1rem 0; border: 1px solid #ccc; border-radius: 8px; overflow: hidden; }
+    h1 { font-size: 2.2rem; margin-bottom: 1rem; text-align: center; }
+    h2 { margin-top: 2rem; font-size: 1.4rem; border-bottom: 1px solid #ccc; padding-bottom: 0.5rem; }
+    nav { position: sticky; top: 0; background: white; padding: 1rem 0; z-index: 10; border-bottom: 1px solid #eee; display: flex; gap: 1rem; justify-content: center; }
+    nav a { text-decoration: none; color: #2563eb; font-weight: bold; }
+    table { width: 100%; border-collapse: collapse; background: white; margin-top: 1rem; }
+    th, td { padding: 0.75rem 1rem; border: 1px solid #ddd; text-align: left; }
     iframe { width: 100%; height: 300px; border: 0; }
+    .map-embed { margin-top: 0.5rem; border-radius: 8px; overflow: hidden; border: 1px solid #ccc; }
+    .section { margin-top: 2rem; }
     .address-block { margin-bottom: 2.5rem; }
-    .label { font-weight: bold; }
+    .label { font-weight: bold; margin-bottom: 0.3rem; }
+    ul { padding-left: 1.5rem; }
+    img { max-width: 100%; margin-top: 1rem; border-radius: 6px; }
   </style>
 </head>
 <body>
-  <h1>📍 2025 봄 한국 여행 일정 – 주소 및 Naver 지도 미리보기</h1>
+
+<nav>
+  <a href="#summary">일정표</a>
+  <a href="#addresses">주소</a>
+  <a href="#maps">지도</a>
+  <a href="#flights">교통</a>
+  <a href="#meals">식사/스킨케어</a>
+  <a href="#timeline">타임라인</a>
+  <a href="#bookings">예약번호</a>
+</nav>
+
+<h1>📍 2025 봄 한국 여행 일정</h1>
+
+<section id="summary">
+  <h2>🗓️ 전체 일정표</h2>
+  <table>
+    <thead><tr><th>날짜</th><th>도시</th><th>주소</th></tr></thead>
+    <tbody>
+      <tr><td>4/22–24</td><td>수원</td><td>경기도 수원시 장안구 만석로20번길 25, 청솔마을 SK한화아파트 624동 103호</td></tr>
+      <tr><td>4/24–5/3</td><td>서울</td><td>서울특별시 마포구 창전로 26, 서강GS아파트 103동 401호</td></tr>
+      <tr><td>5/3</td><td>광주</td><td>광주광역시 광산구 상무대로205번길 6, 3층 (롯데렌터카)</td></tr>
+      <tr><td>5/3–4</td><td>광주</td><td>광주광역시 서구 시청로 53, 유탑 유블레스 호텔</td></tr>
+      <tr><td>5/4–6</td><td>보성</td><td>전라남도 보성군 복내면 개기로 1529-45</td></tr>
+      <tr><td>5/6–7</td><td>광주</td><td>광주광역시 광산구 상무대로205번길 6, 3층 (롯데렌터카)</td></tr>
+      <tr><td>5/7–10</td><td>서울</td><td>서울특별시 마포구 창전로 26, 서강GS아파트 103동 401호</td></tr>
+      <tr><td>5/11–13</td><td>수원</td><td>경기도 수원시 장안구 만석로20번길 25, 청솔마을 SK한화아파트 624동 103호</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="addresses">
+  <h2>🏠 정리된 주소 목록 (큰 → 작은)</h2>
+  <ul>
+    <li>경기도 수원시 장안구 만석로20번길 25, 청솔마을 SK한화아파트 624동 103호</li>
+    <li>서울특별시 마포구 창전로 26, 서강GS아파트 103동 401호</li>
+    <li>광주광역시 광산구 상무대로205번길 6, 3층 (롯데렌터카)</li>
+    <li>광주광역시 서구 시청로 53, 유탑 유블레스 호텔</li>
+    <li>전라남도 보성군 복내면 개기로 1529-45</li>
+  </ul>
+</section>
+
+<section id="maps">
+  <h2>🗺️ Naver 지도 미리보기</h2>
 
   <div class="address-block">
-    <div class="label">4월 22–24일: 수원</div>
-    경기도 수원시 장안구 만석로20번길 25, 청솔마을 SK한화아파트 624동 103호
+    <div class="label">수원</div>
     <div class="map-embed">
-      <iframe src="https://map.naver.com/v5/search/청솔마을%20SK한화아파트%20624동%20103호" allowfullscreen></iframe>
+      <iframe src="https://map.naver.com/v5/search/청솔마을 SK한화아파트 624동 103호" allowfullscreen></iframe>
     </div>
   </div>
-
+    
   <div class="address-block">
-    <div class="label">4월 24 – 5월 3일: 서울</div>
-    서울특별시 마포구 창전로 26, 서강GS아파트 103동 401호
+    <div class="label">서울</div>
     <div class="map-embed">
-      <iframe src="https://map.naver.com/v5/search/서강GS아파트%20103동%20401호" allowfullscreen></iframe>
+      <iframe src="https://map.naver.com/v5/search/서강GS아파트 103동 401호" allowfullscreen></iframe>
     </div>
   </div>
-
+    
   <div class="address-block">
-    <div class="label">5월 3일: 광주 (렌터카 픽업)</div>
-    광주광역시 광산구 상무대로205번길 6, 3층 (롯데렌터카 광주송정역지점)
+    <div class="label">광주 렌터카</div>
     <div class="map-embed">
-      <iframe src="https://map.naver.com/v5/search/상무대로205번길%206%20롯데렌터카" allowfullscreen></iframe>
+      <iframe src="https://map.naver.com/v5/search/상무대로205번길 6 롯데렌터카" allowfullscreen></iframe>
     </div>
   </div>
-
+    
   <div class="address-block">
-    <div class="label">5월 3–4일: 광주 (숙소)</div>
-    광주광역시 서구 시청로 53, 유탑 유블레스 호텔
+    <div class="label">광주 숙소</div>
     <div class="map-embed">
-      <iframe src="https://map.naver.com/v5/search/광주%20유탑%20유블레스%20호텔" allowfullscreen></iframe>
+      <iframe src="https://map.naver.com/v5/search/광주 유탑 유블레스 호텔" allowfullscreen></iframe>
     </div>
   </div>
-
+    
   <div class="address-block">
-    <div class="label">5월 4–6일: 보성</div>
-    전라남도 보성군 복내면 개기로 1529-45
+    <div class="label">보성</div>
     <div class="map-embed">
-      <iframe src="https://map.naver.com/v5/search/보성군%20복내면%20개기로%201529-45" allowfullscreen></iframe>
+      <iframe src="https://map.naver.com/v5/search/보성군 복내면 개기로 1529-45" allowfullscreen></iframe>
     </div>
   </div>
+    
+</section>
 
-  <div class="address-block">
-    <div class="label">5월 6–7일: 광주</div>
-    광주광역시 광산구 상무대로205번길 6, 3층 (롯데렌터카 광주송정역지점)
-    <div class="map-embed">
-      <iframe src="https://map.naver.com/v5/search/상무대로205번길%206%20롯데렌터카" allowfullscreen></iframe>
-    </div>
-  </div>
+<section id="flights">
+  <h2>✈️ 항공 및 교통 정보</h2>
+  <ul>
+    <li>4/21 – DL4949, Appleton 출발 6:20 a.m. (확인번호: HKHSTV)</li>
+    <li>4/22 – DL0171, 인천 도착 5:20 p.m.</li>
+    <li>5/13 – DL0170, 인천 출발 6:40 p.m. (Terminal 2) → DL4002 연결</li>
+    <li>5/3 – 서울 → 광주 고속버스, 9:30 a.m. (금호익스프레스, 010-4043-4043)</li>
+  </ul>
+</section>
 
-  <div class="address-block">
-    <div class="label">5월 7–10일: 서울</div>
-    서울특별시 마포구 창전로 26, 서강GS아파트 103동 401호
-    <div class="map-embed">
-      <iframe src="https://map.naver.com/v5/search/서강GS아파트%20103동%20401호" allowfullscreen></iframe>
-    </div>
-  </div>
+<section id="meals">
+  <h2>🍽️ 식사 및 스킨케어</h2>
+  <ul>
+    <li><strong>식사 옵션 (서울 4/24):</strong> 들깨수제비, 황금콩밭, DUBU Heaven</li>
+    <li><strong>스킨케어:</strong> re-ele clinic (홍대)</li>
+  </ul>
+</section>
 
-  <div class="address-block">
-    <div class="label">5월 11–13일: 수원</div>
-    경기도 수원시 장안구 만석로20번길 25, 청솔마을 SK한화아파트 624동 103호
-    <div class="map-embed">
-      <iframe src="https://map.naver.com/v5/search/청솔마을%20SK한화아파트%20624동%20103호" allowfullscreen></iframe>
-    </div>
-  </div>
+<section id="timeline">
+  <h2>📊 지역별 타임라인</h2>
+  <img src="Korea_Trip_Timeline.jpeg" alt="여행 타임라인 이미지">
+</section>
+
+<section id="bookings">
+  <h2>🧾 숙소 예약 정보</h2>
+  <ul>
+    <li>5/3–4 광주 (유탑 호텔) – Agoda 예약 ID: <strong>851307210</strong></li>
+    <li>5/4–6 보성 (한옥) – Agoda 예약 ID: <strong>851243594</strong></li>
+  </ul>
+</section>
 
 </body>
 </html>
