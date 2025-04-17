@@ -1,98 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Korea Trip – Itinerary</title>
-  <style>
-    body {font-family: system-ui, sans-serif; line-height: 1.5; margin: 0; padding: 0 0 4rem;}
-    header {position: sticky; top: 0; background:#fff; border-bottom:1px solid #ddd; padding: .75rem 1rem; display:flex; justify-content:space-between; align-items:center; z-index: 10;}
-    #toggleBtn {padding:.4rem .9rem; border:1px solid #999; background:#f5f5f5; border-radius:.5rem; cursor:pointer; font-weight:600;}
-    #toggleBtn:hover {background:#eaeaea;}
-    h2 {margin:.75rem 0 .25rem; font-size:1.25rem; border-bottom:1px solid #eee; padding-bottom:.25rem;}
-    .day {margin:.5rem 0 .25rem; font-weight:600;}
-    .editable[contenteditable="true"] {outline: 2px dashed #4a90e2; background: #fdfdff; border-radius: .25rem; padding:.1rem .2rem;}
-    /* hide editing-only controls in view mode */
-    body:not(.editing) .edit-only {display:none;}
-  </style>
-</head>
-<body>
-  <header>
-    <h1 style="margin:0;font-size:1.1rem;">🇰🇷 Korea Trip 2025</h1>
-    <button id="toggleBtn" aria-pressed="false">Edit</button>
-  </header>
+# 1. If you already have the repo locally, cd into it.
+#    Otherwise clone it first:
+git clone https://github.com/omatty123/Korea_Trip_Site_Package.git
+cd Korea_Trip_Site_Package
 
-  <main id="content" style="padding:1rem;max-width:45rem;margin:auto;">
+# 2. Make sure you’re up to date (your usual rule)
+git pull origin main --rebase
 
-    <!-- ============================= -->
-    <section>
-      <h2>Suwon • Apr 22–24</h2>
-      <p class="editable" data-key="suwon-summary">Address: 경기도 수원시 장안구 만석로20번길25 청솔마을 SK한화아파트 624동 103호</p>
-      <p class="editable" data-key="suwon-notes">Notes: Airport bus 4100 from ICN → Suwon (stop 8A / platform 36).</p>
-    </section>
+# 3. Overwrite index.html with the version in the ChatGPT canvas
+#    – simplest on mac: copy code to clipboard, then:
+pbpaste > index.html          # or use xclip / clip on other OSes
+#    – or open your editor (nano, vim, VS Code) and paste the code there.
 
-    <section>
-      <h2>Seoul • Apr 24 – May 3</h2>
-      <p class="editable" data-key="seoul-summary">Housing: 서강GS아파트 103‑401, 창전로 26, Mapo‑gu.</p>
-    </section>
-
-    <section>
-      <h2>Gwangju • May 3–4</h2>
-      <div class="day">Sat May 3</div>
-      <ul>
-        <li class="editable" data-key="gj-0503-bus">🚌 09:30 Premium bus Central City → Gwangju U‑Square (3h 20m)</li>
-        <li class="editable" data-key="gj-0503-car">🚗 Pick‑up AVANTE (G) @ LOTTE Songjeong 15:00</li>
-      </ul>
-      <div class="day">Sun May 4</div>
-      <ul>
-        <li class="editable" data-key="gj-0504-jeong">Day tour with Author Jeong (Ssangbongsa → Boseong)</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Boseong • May 4–6</h2>
-      <p class="editable" data-key="boseong-summary">Hanok stay: 1529‑45 Gaegi‑ro, Bongnae‑myeon.</p>
-    </section>
-
-    <section>
-      <h2>Seoul • May 7–10</h2>
-      <p class="editable" data-key="seoul2-summary">Return to 서강GS아파트, appointments & friends.</p>
-    </section>
-
-    <section>
-      <h2>Suwon • May 11–13</h2>
-      <p class="editable" data-key="suwon2-summary">Wrap‑up & depart ICN May 13 18:40 (DL0170).</p>
-    </section>
-
-  </main>
-
-  <script>
-    const btn = document.getElementById('toggleBtn');
-    let editing = false;
-
-    function setMode(edit) {
-      editing = edit;
-      document.body.classList.toggle('editing', editing);
-      btn.textContent = editing ? 'View' : 'Edit';
-      btn.setAttribute('aria-pressed', editing);
-      document.querySelectorAll('.editable').forEach(el => {
-        el.contentEditable = editing;
-        if (!editing) {
-          // save on leaving edit mode
-          localStorage.setItem(el.dataset.key, el.textContent.trim());
-        }
-      });
-    }
-
-    btn.addEventListener('click', () => setMode(!editing));
-
-    // Load any saved edits on startup
-    window.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.editable').forEach(el => {
-        const saved = localStorage.getItem(el.dataset.key);
-        if (saved !== null) el.textContent = saved;
-      });
-    });
-  </script>
-</body>
-</html>
+# 4. Commit and push
+git add index.html
+git commit -m "feat: add Edit⇄View toggle while keeping original layout"
+git push origin main
