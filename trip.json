@@ -1,0 +1,42 @@
+[
+  {
+    "date": "2025-04-22",
+    "city": "Suwon",
+    "items": [
+      { "time": "18:00", "type": "lodging", "text": "Check‑in SK Hanwha Apt 624‑103 (만석로20번길 25)" }
+    ]
+  },
+  {
+    "date": "2025-04-24",
+    "city": "Seoul",
+    "items": [
+      { "time": "09:30", "type": "move", "text": "Taxi apt → Suwon Station" },
+      { "time": "10:01", "type": "train", "text": "KTX Suwon → Seoul Station (arr 10:22)" },
+      { "time": "10:33", "type": "subway", "text": "AREX Seoul Stn → Hongik Univ Stn" },
+      { "time": "11:30", "type": "appt", "text": "Skin‑care consult re‑ele clinic (13F, 162 Yanghwa‑ro)" },
+      { "time": "19:00", "type": "meal",  "text": "Dinner w/ Eun‑su – 들깨수제비 or 황금콩밭 or Dubu" }
+    ]
+  },
+  {
+    "date": "2025-05-03",
+    "city": "Gwangju",
+    "items": [
+      { "time": "09:30", "type": "bus", "text": "Premium bus Central City → Gwangju U‑Square (3h20m)" },
+      { "time": "15:00", "type": "car", "text": "Pick‑up AVANTE (G) at LOTTE Rent‑a‑Car Songjeong" }
+    ]
+  },
+  {
+    "date": "2025-05-04",
+    "city": "Boseong",
+    "items": [
+      { "time": "09:00", "type": "tour", "text": "Day itinerary with Author Jeong – Ssangbongsa, Botjae, etc." }
+    ]
+  },
+  {
+    "date": "2025-05-13",
+    "city": "Departure",
+    "items": [
+      { "time": "18:40", "type": "flight", "text": "DL0170 ICN → MSP" }
+    ]
+  }
+]
