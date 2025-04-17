@@ -1,50 +1,14 @@
-[
-  {
-    "date": "2025-04-22",
-    "city": "Suwon",
-    "addressKo": "경기도 수원시 장안구 만석로20번길 25",
-    "addressEn": "25 Manseok‑ro 20beon‑gil, Jangan‑gu, Suwon‑si",
-    "items": [
-      { "time": "18:00", "text": "Check‑in SK Hanwha Apt 624‑103" }
-    ]
-  },
-  {
-    "date": "2025-04-24",
-    "city": "Seoul",
-    "addressKo": "서울 마포구 창전로 26, 서강GS아파트 103동 401호",
-    "addressEn": "26 Changjeon‑ro, Mapo‑gu (Bldg 103‑401)",
-    "items": [
-      { "time": "09:30", "text": "Taxi apt → Suwon Station" },
-      { "time": "10:01", "text": "KTX Suwon → Seoul Stn (arr 10:22)" },
-      { "time": "10:33", "text": "AREX Seoul Stn → Hongik Univ Stn" },
-      { "time": "11:30", "text": "Skin‑care consult re‑ele clinic (13F 162 Yanghwa‑ro)" },
-      { "time": "19:00", "text": "Dinner w/ Eun‑su – 들깨수제비 / 황금콩밭 / Dubu" }
-    ]
-  },
-  {
-    "date": "2025-05-03",
-    "city": "Gwangju",
-    "addressKo": "광주광역시 광산구 상무대로205번길 6, 3층 (롯데렌터카)",
-    "addressEn": "3F 6 Sangmu‑daero 205beon‑gil, Gwangsan‑gu",
-    "items": [
-      { "time": "09:30", "text": "Premium bus Central City → Gwangju U‑Square (3h20m)" },
-      { "time": "15:00", "text": "Pick‑up AVANTE (G) @ LOTTE Songjeong" }
-    ]
-  },
-  {
-    "date": "2025-05-04",
-    "city": "Boseong",
-    "addressKo": "전라남도 보성군 복내면 개기로 1529-45",
-    "addressEn": "1529‑45 Gaegi‑ro, Bongnae‑myeon, Boseong‑gun",
-    "items": [
-      { "time": "09:00", "text": "Day tour with Author Jeong – Ssangbongsa, Botjae, etc." }
-    ]
-  },
-  {
-    "date": "2025-05-13",
-    "city": "Departure",
-    "items": [
-      { "time": "18:40", "text": "DL0170 ICN → MSP" }
-    ]
-  }
-]
+{
+  "itinerary": [
+    {"date": "4/21", "location": "Depart Appleton"},
+    {"date": "4/22–24", "location": "Suwon"},
+    {"date": "4/24–5/3", "location": "Seoul"},
+    {"date": "5/3", "location": "Bus to Gwangju"},
+    {"date": "5/3–5/4", "location": "Gwangju"},
+    {"date": "5/4–5/6", "location": "Boseong"},
+    {"date": "5/6–5/7", "location": "Back to Gwangju"},
+    {"date": "5/7–5/10", "location": "Seoul"},
+    {"date": "5/11–13", "location": "Suwon"},
+    {"date": "5/13", "location": "Fly home"}
+  ]
+}
