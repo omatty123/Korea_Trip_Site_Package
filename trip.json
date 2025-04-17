@@ -1,17 +1,114 @@
-[
-  { "date": "2025-04-21", "city": "Flight", "address": "DL4949 from Appleton at 6:20 AM", "type": "travel" },
-  { "date": "2025-04-22", "city": "Suwon", "address": "경기도 수원시 장안구 만석로20번길 25, 청솔마을 SK한화아파트 624동 103호", "type": "stay" },
-  { "date": "2025-04-24", "city": "Seoul", "address": "서울 마포구 창전로 26, 서강GS아파트 103동 401호", "type": "stay" },
-  { "date": "2025-05-03", "city": "Gwangju", "address": "Arrival at Gwangju U-Square via Central City Terminal bus", "type": "transition" },
-  { "date": "2025-05-04", "city": "Boseong", "address": "전남 보성군 복내면 반석리 518 (Airbnb applied)", "type": "stay" },
-  { "date": "2025-05-06", "city": "Gwangju", "address": "서구 시청로 53, 광주 (lodging)", "type": "stay" },
-  { "date": "2025-05-07", "city": "Seoul", "address": "서울 마포구 창전로 26, 서강GS아파트 103동 401호", "type": "stay" },
-  { "date": "2025-05-11", "city": "Suwon", "address": "경기도 수원시 장안구 만석로20번길 25, 청솔마을 SK한화아파트 624동 103호", "type": "stay" },
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Korea Trip</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    nav { background: #fff; border-bottom: 1px solid #ccc; }
+    .tabs { display: flex; list-style: none; margin: 0; padding: 0; }
+    .tabs li { padding: 1rem 1.5rem; cursor: pointer; font-weight: 500; }
+    .tabs li.active { border-bottom: 2px solid #000; font-weight: 700; }
+    main section { display: none; padding: 1.5rem; }
+    main section.active { display: block; }
+    .entry { margin-bottom: 1rem; }
+    .entry h3, .entry h4 { margin: 0.2rem 0; }
+    .map-links a { margin-right: 0.5rem; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul class="tabs">
+      <li data-tab="timeline" class="active">TIMELINE</li>
+      <li data-tab="restaurants">식당</li>
+      <li data-tab="notes">NOTES</li>
+    </ul>
+  </nav>
+  <main>
+    <section id="timeline" class="active"></section>
+    <section id="restaurants"></section>
+    <section id="notes"></section>
+  </main>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Tab switching
+      const tabs = document.querySelectorAll('.tabs li');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('main section').forEach(sec => sec.classList.remove('active'));
+          tab.classList.add('active');
+          document.getElementById(tab.dataset.tab).classList.add('active');
+        });
+      });
 
-  { "date": "2025-04-25", "city": "Seoul", "name": "Plant (vegan café)", "type": "restaurant" },
-  { "date": "2025-04-26", "city": "Seoul", "name": "Osegye Hyang", "type": "restaurant" },
-  { "date": "2025-05-05", "city": "Gwangju", "name": "Mudeungsan Café", "type": "restaurant" },
+      // Load trip data
+      const loadTrip = async () => {
+        try {
+          const res = await fetch('./trip.json');
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const data = await res.json();
+          populateSections(data);
+        } catch (err) {
+          console.error('Failed to load trip.json:', err);
+          // Fallback: inline data if needed
+          const data = [
+            { date: '2025-04-21', city: 'Flight', address: 'DL4949 from Appleton at 6:20 AM', type: 'travel' }
+            // add more entries or ensure trip.json is present in folder
+          ];
+          populateSections(data);
+        }
+      };
 
-  { "date": "2025-04-24", "notes": "Skin clinic appointment at 11:30 AM at re-ele clinic, 13F, 162 Yanghwa-ro, Mapo-gu, Seoul", "type": "note" },
-  { "date": "2025-05-03", "notes": "Pick up rental car at LOTTE Rent-a-Car Gwangju Songjeong Station branch", "type": "note" }
-]
+      const populateSections = data => {
+        const tl = document.getElementById('timeline');
+        const rest = document.getElementById('restaurants');
+        const notes = document.getElementById('notes');
+        data.forEach(item => {
+          // Timeline
+          const div = document.createElement('div'); div.className = 'entry';
+          const date = document.createElement('h3'); date.textContent = item.date; div.appendChild(date);
+          if (item.city) {
+            const city = document.createElement('p'); city.textContent = item.city + (item.address ? ` – ${item.address}` : ''); div.appendChild(city);
+            const maps = document.createElement('p'); maps.className = 'map-links';
+            ['Naver Map', 'Kakao Map'].forEach((label, i) => {
+              const a = document.createElement('a');
+              const service = i === 0 ? 'naver.com' : 'kakao.com';
+              const path = i === 0 ? 'v5/search' : 'search';
+              const base = i === 0 ? 'https://map.naver.com/' : 'https://map.kakao.com/';
+              a.href = `${base}${path}/${encodeURIComponent(item.city)}`;
+              a.textContent = label; a.target = '_blank'; maps.appendChild(a);
+            });
+            div.appendChild(maps);
+            tl.appendChild(div);
+          }
+          // Restaurants
+          if (item.type === 'restaurant') {
+            const d2 = document.createElement('div'); d2.className = 'entry';
+            const name = document.createElement('h4'); name.textContent = item.name; d2.appendChild(name);
+            const mLinks = document.createElement('p'); mLinks.className = 'map-links';
+            ['Naver', 'Kakao'].forEach((lab, i) => {
+              const a = document.createElement('a');
+              const base = i === 0 ? 'https://map.naver.com/' : 'https://map.kakao.com/';
+              const path = i === 0 ? 'v5/search' : 'search';
+              a.href = `${base}${path}/${encodeURIComponent(item.name)}`;
+              a.textContent = lab; a.target = '_blank'; mLinks.appendChild(a);
+            });
+            d2.appendChild(mLinks);
+            rest.appendChild(d2);
+          }
+          // Notes
+          if (item.notes) {
+            const d3 = document.createElement('div'); d3.className = 'entry';
+            const p = document.createElement('p'); p.textContent = `${item.date} – ${item.notes}`; d3.appendChild(p);
+            notes.appendChild(d3);
+          }
+        });
+      };
+
+      loadTrip();
+    });
+  </script>
+</body>
+</html>
