@@ -2,13 +2,17 @@
   {
     "date": "2025-04-22",
     "city": "Suwon",
+    "addressKo": "경기도 수원시 장안구 만석로20번길 25",
+    "addressEn": "25 Manseok‑ro 20beon‑gil, Jangan‑gu, Suwon‑si",
     "items": [
-      { "time": "18:00", "type": "lodging", "text": "Check‑in SK Hanwha Apt 624‑103 (만석로20번길 25)" }
+      { "time": "18:00", "type": "lodging", "text": "Check‑in SK Hanwha Apt 624‑103" }
     ]
   },
   {
     "date": "2025-04-24",
     "city": "Seoul",
+    "addressKo": "서울 마포구 창전로 26, 서강GS아파트 103동 401호",
+    "addressEn": "26 Changjeon‑ro, Mapo‑gu, Seoul (Bldg 103‑401)",
     "items": [
       { "time": "09:30", "type": "move", "text": "Taxi apt → Suwon Station" },
       { "time": "10:01", "type": "train", "text": "KTX Suwon → Seoul Station (arr 10:22)" },
@@ -20,6 +24,8 @@
   {
     "date": "2025-05-03",
     "city": "Gwangju",
+    "addressKo": "광주광역시 광산구 상무대로205번길 6, 3층 (롯데렌터카)",
+    "addressEn": "3F, 6 Sangmu‑daero 205beon‑gil, Gwangsan‑gu, Gwangju",
     "items": [
       { "time": "09:30", "type": "bus", "text": "Premium bus Central City → Gwangju U‑Square (3h20m)" },
       { "time": "15:00", "type": "car", "text": "Pick‑up AVANTE (G) at LOTTE Rent‑a‑Car Songjeong" }
@@ -28,6 +34,8 @@
   {
     "date": "2025-05-04",
     "city": "Boseong",
+    "addressKo": "전라남도 보성군 복내면 개기로 1529-45",
+    "addressEn": "1529‑45 Gaegi‑ro, Bongnae‑myeon, Boseong‑gun",
     "items": [
       { "time": "09:00", "type": "tour", "text": "Day itinerary with Author Jeong – Ssangbongsa, Botjae, etc." }
     ]
