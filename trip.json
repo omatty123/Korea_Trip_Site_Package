@@ -1,14 +1,17 @@
-{
-  "itinerary": [
-    {"date": "4/21", "location": "Depart Appleton"},
-    {"date": "4/22–24", "location": "Suwon"},
-    {"date": "4/24–5/3", "location": "Seoul"},
-    {"date": "5/3", "location": "Bus to Gwangju"},
-    {"date": "5/3–5/4", "location": "Gwangju"},
-    {"date": "5/4–5/6", "location": "Boseong"},
-    {"date": "5/6–5/7", "location": "Back to Gwangju"},
-    {"date": "5/7–5/10", "location": "Seoul"},
-    {"date": "5/11–13", "location": "Suwon"},
-    {"date": "5/13", "location": "Fly home"}
-  ]
-}
+[
+  { "date": "2025-04-21", "city": "Flight", "address": "DL4949 from Appleton at 6:20 AM", "type": "travel" },
+  { "date": "2025-04-22", "city": "Suwon", "address": "경기도 수원시 장안구 만석로20번길 25, 청솔마을 SK한화아파트 624동 103호", "type": "stay" },
+  { "date": "2025-04-24", "city": "Seoul", "address": "서울 마포구 창전로 26, 서강GS아파트 103동 401호", "type": "stay" },
+  { "date": "2025-05-03", "city": "Gwangju", "address": "Arrival at Gwangju U-Square via Central City Terminal bus", "type": "transition" },
+  { "date": "2025-05-04", "city": "Boseong", "address": "전남 보성군 복내면 반석리 518 (Airbnb applied)", "type": "stay" },
+  { "date": "2025-05-06", "city": "Gwangju", "address": "서구 시청로 53, 광주 (lodging)", "type": "stay" },
+  { "date": "2025-05-07", "city": "Seoul", "address": "서울 마포구 창전로 26, 서강GS아파트 103동 401호", "type": "stay" },
+  { "date": "2025-05-11", "city": "Suwon", "address": "경기도 수원시 장안구 만석로20번길 25, 청솔마을 SK한화아파트 624동 103호", "type": "stay" },
+
+  { "date": "2025-04-25", "city": "Seoul", "name": "Plant (vegan café)", "type": "restaurant" },
+  { "date": "2025-04-26", "city": "Seoul", "name": "Osegye Hyang", "type": "restaurant" },
+  { "date": "2025-05-05", "city": "Gwangju", "name": "Mudeungsan Café", "type": "restaurant" },
+
+  { "date": "2025-04-24", "notes": "Skin clinic appointment at 11:30 AM at re-ele clinic, 13F, 162 Yanghwa-ro, Mapo-gu, Seoul", "type": "note" },
+  { "date": "2025-05-03", "notes": "Pick up rental car at LOTTE Rent-a-Car Gwangju Songjeong Station branch", "type": "note" }
+]
