@@ -1,107 +1,98 @@
-
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2025 봄 한국 여행 – 일정 및 지도</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Korea Trip – Itinerary</title>
   <style>
-    body { font-family: 'Inter', sans-serif; background: #f9fafb; padding: 2rem; color: #111; }
-    h1 { text-align: center; font-size: 1.8rem; margin-bottom: 2rem; }
-    .entry { display: flex; justify-content: space-between; gap: 2rem; margin-bottom: 2.5rem; flex-wrap: wrap; background: #fff; padding: 1rem 1.5rem; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
-    .left { flex: 1 1 300px; }
-    .right { flex: 1 1 300px; }
-    h2 { font-size: 1.25rem; margin-bottom: 0.5rem; }
-    p { margin: 0.25rem 0; }
-    .map-buttons a {
-      display: inline-block;
-      padding: 0.3rem 0.75rem;
-      margin-right: 0.5rem;
-      margin-top: 0.5rem;
-      font-size: 0.85rem;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-    .naver { background: #03c75a; color: white; }
-    .kakao { background: #ffe812; color: #111; }
-    .restaurant-links ul { padding-left: 1.2rem; margin-top: 0.5rem; }
-    .restaurant-links a { color: #2563eb; text-decoration: none; }
+    body {font-family: system-ui, sans-serif; line-height: 1.5; margin: 0; padding: 0 0 4rem;}
+    header {position: sticky; top: 0; background:#fff; border-bottom:1px solid #ddd; padding: .75rem 1rem; display:flex; justify-content:space-between; align-items:center; z-index: 10;}
+    #toggleBtn {padding:.4rem .9rem; border:1px solid #999; background:#f5f5f5; border-radius:.5rem; cursor:pointer; font-weight:600;}
+    #toggleBtn:hover {background:#eaeaea;}
+    h2 {margin:.75rem 0 .25rem; font-size:1.25rem; border-bottom:1px solid #eee; padding-bottom:.25rem;}
+    .day {margin:.5rem 0 .25rem; font-weight:600;}
+    .editable[contenteditable="true"] {outline: 2px dashed #4a90e2; background: #fdfdff; border-radius: .25rem; padding:.1rem .2rem;}
+    /* hide editing-only controls in view mode */
+    body:not(.editing) .edit-only {display:none;}
   </style>
 </head>
 <body>
-  <h1>📍 2025 봄 한국 여행 - 일정 및 지도 보기</h1>
+  <header>
+    <h1 style="margin:0;font-size:1.1rem;">🇰🇷 Korea Trip 2025</h1>
+    <button id="toggleBtn" aria-pressed="false">Edit</button>
+  </header>
 
-  <div class="entry">
-    <div class="left">
-      <h2>4/22–24 수원 (Suwon)</h2>
-      <p>경기도 수원시 장안구 만석로20번길 25</p>
-      <p>Changsung-ro 20beon-gil 25, Jangan-gu, Suwon-si, Gyeonggi-do</p>
-      <div class="map-buttons">
-        <a class="naver" href="https://map.naver.com/v5/search/경기도 수원시 장안구 만석로20번길 25" target="_blank">Naver 지도</a>
-        <a class="kakao" href="https://map.kakao.com/link/search/경기도 수원시 장안구 만석로20번길 25" target="_blank">Kakao 지도</a>
-      </div>
-    </div>
-    <div class="right restaurant-links">
-      <h3>🍽 추천 식사 (4/24 저녁)</h3>
+  <main id="content" style="padding:1rem;max-width:45rem;margin:auto;">
+
+    <!-- ============================= -->
+    <section>
+      <h2>Suwon • Apr 22–24</h2>
+      <p class="editable" data-key="suwon-summary">Address: 경기도 수원시 장안구 만석로20번길25 청솔마을 SK한화아파트 624동 103호</p>
+      <p class="editable" data-key="suwon-notes">Notes: Airport bus 4100 from ICN → Suwon (stop 8A / platform 36).</p>
+    </section>
+
+    <section>
+      <h2>Seoul • Apr 24 – May 3</h2>
+      <p class="editable" data-key="seoul-summary">Housing: 서강GS아파트 103‑401, 창전로 26, Mapo‑gu.</p>
+    </section>
+
+    <section>
+      <h2>Gwangju • May 3–4</h2>
+      <div class="day">Sat May 3</div>
       <ul>
-        <li><a href="https://www.diningcode.com/profile.php?rid=c6m8u1fRdQUN" target="_blank">들깨수제비</a></li>
-        <li><a href="https://www.diningcode.com/profile.php?rid=Nd36vJklE9Fo" target="_blank">황금콩밭</a></li>
-        <li><a href="https://blog.naver.com/cozy95/221946990545" target="_blank">DUBU Heaven</a></li>
+        <li class="editable" data-key="gj-0503-bus">🚌 09:30 Premium bus Central City → Gwangju U‑Square (3h 20m)</li>
+        <li class="editable" data-key="gj-0503-car">🚗 Pick‑up AVANTE (G) @ LOTTE Songjeong 15:00</li>
       </ul>
-    </div>
-  </div>
+      <div class="day">Sun May 4</div>
+      <ul>
+        <li class="editable" data-key="gj-0504-jeong">Day tour with Author Jeong (Ssangbongsa → Boseong)</li>
+      </ul>
+    </section>
 
-  <div class="entry">
-    <div class="left">
-      <h2>4/24–5/3 서울 (Seoul)</h2>
-      <p>서울 마포구 창전로 26, 서강GS아파트 103동 401호</p>
-      <p>26 Changjeon-ro, Mapo-gu, Seoul, Building 103, Apt 401</p>
-      <div class="map-buttons">
-        <a class="naver" href="https://map.naver.com/v5/search/서울 마포구 창전로 26" target="_blank">Naver 지도</a>
-        <a class="kakao" href="https://map.kakao.com/link/search/서울 마포구 창전로 26" target="_blank">Kakao 지도</a>
-      </div>
-    </div>
-    <div class="right">
-      <p>💆‍♀️ 스킨케어: re-ele clinic (홍대)</p>
-    </div>
-  </div>
+    <section>
+      <h2>Boseong • May 4–6</h2>
+      <p class="editable" data-key="boseong-summary">Hanok stay: 1529‑45 Gaegi‑ro, Bongnae‑myeon.</p>
+    </section>
 
-  <div class="entry">
-    <div class="left">
-      <h2>5/3 광주 (Gwangju)</h2>
-      <p>광주광역시 광산구 상무대로205번길 6, 3층 (롯데렌터카)</p>
-      <p>3F, 6 Sangmu-daero 205beon-gil, Gwangsan-gu, Gwangju</p>
-      <div class="map-buttons">
-        <a class="naver" href="https://map.naver.com/v5/search/광주광역시 광산구 상무대로205번길 6" target="_blank">Naver 지도</a>
-        <a class="kakao" href="https://map.kakao.com/link/search/광주광역시 광산구 상무대로205번길 6" target="_blank">Kakao 지도</a>
-      </div>
-    </div>
-  </div>
+    <section>
+      <h2>Seoul • May 7–10</h2>
+      <p class="editable" data-key="seoul2-summary">Return to 서강GS아파트, appointments & friends.</p>
+    </section>
 
-  <div class="entry">
-    <div class="left">
-      <h2>5/3–4 광주 (Gwangju)</h2>
-      <p>광주 서구 시청로 53, 유탑 유블레스 호텔</p>
-      <p>53 Sicheong-ro, Seo-gu, Gwangju</p>
-      <div class="map-buttons">
-        <a class="naver" href="https://map.naver.com/v5/search/광주 서구 시청로 53" target="_blank">Naver 지도</a>
-        <a class="kakao" href="https://map.kakao.com/link/search/광주 서구 시청로 53" target="_blank">Kakao 지도</a>
-      </div>
-    </div>
-  </div>
+    <section>
+      <h2>Suwon • May 11–13</h2>
+      <p class="editable" data-key="suwon2-summary">Wrap‑up & depart ICN May 13 18:40 (DL0170).</p>
+    </section>
 
-  <div class="entry">
-    <div class="left">
-      <h2>5/4–6 보성 (Boseong)</h2>
-      <p>전라남도 보성군 복내면 개기로 1529-45</p>
-      <p>1529-45, Gaegi-ro, Bongnae-myeon, Boseong-gun, Jeollanam-do</p>
-      <div class="map-buttons">
-        <a class="naver" href="https://map.naver.com/v5/search/전라남도 보성군 복내면 개기로 1529-45" target="_blank">Naver 지도</a>
-        <a class="kakao" href="https://map.kakao.com/link/search/전라남도 보성군 복내면 개기로 1529-45" target="_blank">Kakao 지도</a>
-      </div>
-    </div>
-  </div>
+  </main>
 
+  <script>
+    const btn = document.getElementById('toggleBtn');
+    let editing = false;
+
+    function setMode(edit) {
+      editing = edit;
+      document.body.classList.toggle('editing', editing);
+      btn.textContent = editing ? 'View' : 'Edit';
+      btn.setAttribute('aria-pressed', editing);
+      document.querySelectorAll('.editable').forEach(el => {
+        el.contentEditable = editing;
+        if (!editing) {
+          // save on leaving edit mode
+          localStorage.setItem(el.dataset.key, el.textContent.trim());
+        }
+      });
+    }
+
+    btn.addEventListener('click', () => setMode(!editing));
+
+    // Load any saved edits on startup
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.editable').forEach(el => {
+        const saved = localStorage.getItem(el.dataset.key);
+        if (saved !== null) el.textContent = saved;
+      });
+    });
+  </script>
 </body>
 </html>
