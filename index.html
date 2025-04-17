@@ -123,3 +123,24 @@
       document.querySelectorAll(editableSelector).forEach((el,i)=>{
         if(!el.dataset.key) el.dataset.key = 'el'+i;
         el.content
+        el.contentEditable = editing;
+        if (!editing) {
+          // save when leaving Edit mode
+          localStorage.setItem(el.dataset.key, el.innerHTML.trim());
+        }
+      });
+    }
+
+    btn.addEventListener('click', () => setMode(!editing));
+
+    // load saved edits on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll(editableSelector).forEach((el, i) => {
+        if (!el.dataset.key) el.dataset.key = 'el' + i;
+        const saved = localStorage.getItem(el.dataset.key);
+        if (saved !== null) el.innerHTML = saved;
+      });
+    });
+  </script>
+</body>
+</html>
