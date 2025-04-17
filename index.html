@@ -68,7 +68,7 @@
         </div>
       </div>
       <div class="right">
-        <p>‍♀️ 스킨케어: re-ele clinic (홍대)</p>
+        <p>‍♀️ 스킨케어: <a href="https://www.re-ele.com/about/branch.php" target="_blank">re‑ele clinic (홍대)</a></p>
       </div>
     </div>
 
@@ -122,22 +122,4 @@
       btn.setAttribute('aria-pressed', editing);
       document.querySelectorAll(editableSelector).forEach((el,i)=>{
         if(!el.dataset.key) el.dataset.key = 'el'+i;
-        el.contentEditable = editing;
-        if(!editing){
-          localStorage.setItem(el.dataset.key, el.innerHTML.trim());
-        }
-      });
-    }
-
-    btn.addEventListener('click', ()=> setMode(!editing));
-
-    window.addEventListener('DOMContentLoaded', ()=>{
-      document.querySelectorAll(editableSelector).forEach((el,i)=>{
-        if(!el.dataset.key) el.dataset.key = 'el'+i;
-        const saved = localStorage.getItem(el.dataset.key);
-        if(saved!==null) el.innerHTML = saved;
-      });
-    });
-  </script>
-</body>
-</html>
+        el.content
