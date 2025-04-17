@@ -1,114 +1,128 @@
+ORIGINAL 
+INDEX SIMPLE PAGE w/ map links
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Korea Trip</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2025 봄 한국 여행 – 일정 및 지도</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    nav { background: #fff; border-bottom: 1px solid #ccc; }
-    .tabs { display: flex; list-style: none; margin: 0; padding: 0; }
-    .tabs li { padding: 1rem 1.5rem; cursor: pointer; font-weight: 500; }
-    .tabs li.active { border-bottom: 2px solid #000; font-weight: 700; }
-    main section { display: none; padding: 1.5rem; }
-    main section.active { display: block; }
-    .entry { margin-bottom: 1rem; }
-    .entry h3, .entry h4 { margin: 0.2rem 0; }
-    .map-links a { margin-right: 0.5rem; text-decoration: none; }
+    body { font-family: 'Inter', sans-serif; background: #f9fafb; padding: 1.5rem; color: #111; margin:0; }
+    /* --- sticky header with toggle --- */
+    header { position:sticky; top:0; background:#fff; border-bottom:1px solid #ddd; padding:.6rem 1rem; display:flex; justify-content:space-between; align-items:center; z-index:20; }
+    #toggleBtn{ padding:.35rem .9rem; font-weight:600; border:1px solid #999; background:#f5f5f5; border-radius:.5rem; cursor:pointer; }
+    #toggleBtn:hover{ background:#eaeaea; }
+
+    /* existing layout ----------------- */
+    .entry { display:flex; justify-content:space-between; gap:2rem; margin:2rem 0; flex-wrap:wrap; background:#fff; padding:1rem 1.5rem; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,0.05); }
+    .left{ flex:1 1 300px; }
+    .right{ flex:1 1 300px; }
+    h2{ font-size:1.25rem; margin:.1rem 0 .6rem; }
+    h3{ font-size:1rem; margin-top:.25rem; }
+    p{ margin:.25rem 0; }
+    .map-buttons a{ display:inline-block; padding:.3rem .75rem; margin:.4rem .5rem .2rem 0; font-size:.85rem; text-decoration:none; border-radius:4px; }
+    .naver{ background:#03c75a; color:#fff; }
+    .kakao{ background:#ffe812; color:#111; }
+    .restaurant-links ul{ padding-left:1.2rem; margin-top:.5rem; }
+    .restaurant-links a{ color:#2563eb; text-decoration:none; }
+
+    /* edit mode visual cue */
+    .editing .editable[contenteditable="true"]{ outline:2px dashed #4a90e2; background:#fdfdff; border-radius:4px; }
   </style>
 </head>
 <body>
-  <nav>
-    <ul class="tabs">
-      <li data-tab="timeline" class="active">TIMELINE</li>
-      <li data-tab="restaurants">식당</li>
-      <li data-tab="notes">NOTES</li>
-    </ul>
-  </nav>
-  <main>
-    <section id="timeline" class="active"></section>
-    <section id="restaurants"></section>
-    <section id="notes"></section>
-  </main>
+  <header>
+    <h1 style="margin:0;font-size:1.15rem;">🇰🇷 2025 봄 한국 여행</h1>
+    <button id="toggleBtn" aria-pressed="false">Edit</button>
+  </header>
+
+  <!-- Main itinerary -------------------------------------------------- -->
+  <div id="itinerary">
+    <div class="entry">
+      <div class="left">
+        <h2>4/22–24 수원 (Suwon)</h2>
+        <p>경기도 수원시 장안구 만석로20번길 25</p>
+        <p>Changsung-ro 20beon-gil 25, Jangan-gu, Suwon-si, Gyeonggi-do</p>
+        <div class="map-buttons">
+          <a class="naver" href="https://map.naver.com/v5/search/경기도 수원시 장안구 만석로20번길 25" target="_blank">Naver 지도</a>
+          <a class="kakao" href="https://map.kakao.com/link/search/경기도 수원시 장안구 만석로20번길 25" target="_blank">Kakao 지도</a>
+        </div>
+      </div>
+      <div class="right restaurant-links">
+        <h3>추천 식사 (4/24 저녁)</h3>
+        <ul>
+          <li><a href="https://www.diningcode.com/profile.php?rid=c6m8u1fRdQUN" target="_blank">들깨수제비</a></li>
+          <li><a href="https://www.diningcode.com/profile.php?rid=Nd36vJklE9Fo" target="_blank">황금콩밭</a></li>
+          <li><a href="https://blog.naver.com/cozy95/221946990545" target="_blank">DUBU Heaven</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="left">
+        <h2>4/24–5/3 서울 (Seoul)</h2>
+        <p>서울 마포구 창전로 26, 서강GS아파트 103동 401호</p>
+        <p>26 Changjeon-ro, Mapo-gu, Seoul, Building 103, Apt 401</p>
+        <div class="map-buttons">
+          <a class="naver" href="https://map.naver.com/v5/search/서울 마포구 창전로 26" target="_blank">Naver 지도</a>
+          <a class="kakao" href="https://map.kakao.com/link/search/서울 마포구 창전로 26" target="_blank">Kakao 지도</a>
+        </div>
+      </div>
+      <div class="right">
+        <p>‍♀️ 스킨케어: <a href="https://www.re-ele.com/about/branch.php" target="_blank">re‑ele clinic (홍대)</a></p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="left">
+        <h2>5/3 광주 (Gwangju)</h2>
+        <p>광주광역시 광산구 상무대로205번길 6, 3층 (롯데렌터카)</p>
+        <p>3F, 6 Sangmu-daero 205beon-gil, Gwangsan-gu, Gwangju</p>
+        <div class="map-buttons">
+          <a class="naver" href="https://map.naver.com/v5/search/광주광역시 광산구 상무대로205번길 6" target="_blank">Naver 지도</a>
+          <a class="kakao" href="https://map.kakao.com/link/search/광주광역시 광산구 상무대로205번길 6" target="_blank">Kakao 지도</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="left">
+        <h2>5/3–4 광주 (Gwangju)</h2>
+        <p>광주 서구 시청로 53, 유탑 유블레스 호텔</p>
+        <p>53 Sicheong-ro, Seo-gu, Gwangju</p>
+        <div class="map-buttons">
+          <a class="naver" href="https://map.naver.com/v5/search/광주 서구 시청로 53" target="_blank">Naver 지도</a>
+          <a class="kakao" href="https://map.kakao.com/link/search/광주 서구 시청로 53" target="_blank">Kakao 지도</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="left">
+        <h2>5/4–6 보성 (Boseong)</h2>
+        <p>전라남도 보성군 복내면 개기로 1529-45</p>
+        <p>1529-45, Gaegi-ro, Bongnae-myeon, Boseong-gun, Jeollanam-do</p>
+        <div class="map-buttons">
+          <a class="naver" href="https://map.naver.com/v5/search/전라남도 보성군 복내면 개기로 1529-45" target="_blank">Naver 지도</a>
+          <a class="kakao" href="https://map.kakao.com/link/search/전라남도 보성군 복내면 개기로 1529-45" target="_blank">Kakao 지도</a>
+        </div>
+      </div>
+    </div>
+  </div><!-- /itinerary -->
+
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Tab switching
-      const tabs = document.querySelectorAll('.tabs li');
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          tabs.forEach(t => t.classList.remove('active'));
-          document.querySelectorAll('main section').forEach(sec => sec.classList.remove('active'));
-          tab.classList.add('active');
-          document.getElementById(tab.dataset.tab).classList.add('active');
-        });
-      });
+    const btn = document.getElementById('toggleBtn');
+    let editing = false;
 
-      // Load trip data
-      const loadTrip = async () => {
-        try {
-          const res = await fetch('./trip.json');
-          if (!res.ok) throw new Error(`HTTP ${res.status}`);
-          const data = await res.json();
-          populateSections(data);
-        } catch (err) {
-          console.error('Failed to load trip.json:', err);
-          // Fallback: inline data if needed
-          const data = [
-            { date: '2025-04-21', city: 'Flight', address: 'DL4949 from Appleton at 6:20 AM', type: 'travel' }
-            // add more entries or ensure trip.json is present in folder
-          ];
-          populateSections(data);
-        }
-      };
+    const editableSelector = '.entry h2, .entry p, .entry ul, .entry li, .entry h3';
 
-      const populateSections = data => {
-        const tl = document.getElementById('timeline');
-        const rest = document.getElementById('restaurants');
-        const notes = document.getElementById('notes');
-        data.forEach(item => {
-          // Timeline
-          const div = document.createElement('div'); div.className = 'entry';
-          const date = document.createElement('h3'); date.textContent = item.date; div.appendChild(date);
-          if (item.city) {
-            const city = document.createElement('p'); city.textContent = item.city + (item.address ? ` – ${item.address}` : ''); div.appendChild(city);
-            const maps = document.createElement('p'); maps.className = 'map-links';
-            ['Naver Map', 'Kakao Map'].forEach((label, i) => {
-              const a = document.createElement('a');
-              const service = i === 0 ? 'naver.com' : 'kakao.com';
-              const path = i === 0 ? 'v5/search' : 'search';
-              const base = i === 0 ? 'https://map.naver.com/' : 'https://map.kakao.com/';
-              a.href = `${base}${path}/${encodeURIComponent(item.city)}`;
-              a.textContent = label; a.target = '_blank'; maps.appendChild(a);
-            });
-            div.appendChild(maps);
-            tl.appendChild(div);
-          }
-          // Restaurants
-          if (item.type === 'restaurant') {
-            const d2 = document.createElement('div'); d2.className = 'entry';
-            const name = document.createElement('h4'); name.textContent = item.name; d2.appendChild(name);
-            const mLinks = document.createElement('p'); mLinks.className = 'map-links';
-            ['Naver', 'Kakao'].forEach((lab, i) => {
-              const a = document.createElement('a');
-              const base = i === 0 ? 'https://map.naver.com/' : 'https://map.kakao.com/';
-              const path = i === 0 ? 'v5/search' : 'search';
-              a.href = `${base}${path}/${encodeURIComponent(item.name)}`;
-              a.textContent = lab; a.target = '_blank'; mLinks.appendChild(a);
-            });
-            d2.appendChild(mLinks);
-            rest.appendChild(d2);
-          }
-          // Notes
-          if (item.notes) {
-            const d3 = document.createElement('div'); d3.className = 'entry';
-            const p = document.createElement('p'); p.textContent = `${item.date} – ${item.notes}`; d3.appendChild(p);
-            notes.appendChild(d3);
-          }
-        });
-      };
-
-      loadTrip();
-    });
-  </script>
-</body>
-</html>
+    function setMode(edit){
+      editing = edit;
+      document.body.classList.toggle('editing', editing);
+      btn.textContent = editing ? 'View' : 'Edit';
+      btn.setAttribute('aria-pressed', editing);
+      document.querySelectorAll(editableSelector).forEach((el,i)=>{
+        if(!el.dataset.key) el.dataset.key = 'el'+i;
+        el.content
