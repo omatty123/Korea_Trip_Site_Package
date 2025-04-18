@@ -6,19 +6,138 @@
   <title>2025 봄 한국 여행 – 일정 및 지도</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Inter', sans-serif; background: #f9fafb; padding: 1.5rem; color: #111; margin:0; }
-    header { position:sticky; top:0; background:#fff; border-bottom:1px solid #ddd; padding:.6rem 1rem; display:flex; align-items:center; z-index:20; }
-    h1 { margin:0; font-size:1.15rem; }
-    .entry { display:flex; justify-content:space-between; gap:2rem; margin:2rem 0; flex-wrap:wrap; background:#fff; padding:1rem 1.5rem; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,0.05); }
-    .left{ flex:1 1 300px; }
-    .right{ flex:1 1 300px; }
-    h2{ font-size:1.25rem; margin:.1rem 0 .6rem; }
-    h3{ font-size:1rem; margin-top:.25rem; }
-    p{ margin:.25rem 0; }
-    .map-buttons a{ display:inline-block; padding:.3rem .75rem; margin:.4rem .5rem .2rem 0; font-size:.85rem; text-decoration:none; border-radius:4px; }
-    .naver{ background:#03c75a; color:#fff; }
-    .kakao{ background:#ffe812; color:#111; }
-    .booking-links a{ display:inline-block; margin-top:.5rem; text-decoration:none; font-weight:600; }
+    <style>
+  /* 1. Import fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@600;700&display=swap');
+
+  /* 2. Color & font variables */
+  :root {
+    --bg: #f4f7f6;          /* very light mint */
+    --fg: #111;             /* dark text */
+    --accent-teal: #0a7b83; /* map button teal */
+    --accent-yellow: #ffe812; /* map button yellow */
+    --font-body: 'Inter', sans-serif;
+    --font-head: 'Poppins', sans-serif;
+  }
+
+  /* 3. Base */
+  body {
+    margin: 0;
+    padding: 1.5rem;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* 4. Header & toggle */
+  header {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: .6rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 20;
+  }
+
+  #toggleBtn {
+    font-family: var(--font-body);
+    font-weight: 600;
+    padding: .35rem .9rem;
+    border: 1px solid #999;
+    background: #f5f5f5;
+    border-radius: .5rem;
+    cursor: pointer;
+  }
+  #toggleBtn:hover {
+    background: #eaeaea;
+  }
+
+  /* 5. Entries */
+  .entry {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 2rem 0;
+    background: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    flex-wrap: wrap;
+  }
+  .left, .right {
+    flex: 1 1 300px;
+  }
+
+  /* 6. Typography */
+  h1 {
+    margin: 0;
+    font-size: 1.15rem;
+    font-family: var(--font-head);
+    font-weight: 600;
+  }
+  h2 {
+    font-size: 1.25rem;
+    margin: .1rem 0 .6rem;
+    font-family: var(--font-head);
+    font-weight: 600;
+  }
+  h3 {
+    font-size: 1rem;
+    margin-top: .25rem;
+    font-family: var(--font-head);
+    font-weight: 600;
+  }
+  p {
+    margin: .25rem 0;
+  }
+
+  /* 7. Map buttons */
+  .map-buttons a {
+    display: inline-block;
+    padding: .3rem .75rem;
+    margin: .4rem .5rem .2rem 0;
+    font-size: .85rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-weight: 600;
+  }
+  .map-buttons .naver {
+    background: var(--accent-teal);
+    color: #fff;
+  }
+  .map-buttons .kakao {
+    background: var(--accent-yellow);
+    color: var(--fg);
+  }
+
+  /* 8. Restaurant links */
+  .restaurant-links ul {
+    padding-left: 1.2rem;
+    margin-top: .5rem;
+  }
+  .restaurant-links a {
+    color: #2563eb;
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-weight: 400;
+  }
+  .restaurant-links a:hover {
+    text-decoration: underline;
+  }
+
+  /* 9. Edit‑mode cue */
+  .editing .editable[contenteditable="true"] {
+    outline: 2px dashed var(--accent-teal);
+    background: #fdfdff;
+    border-radius: 4px;
+  }
+</style>
   </style>
 </head>
 <body>
