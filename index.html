@@ -7,11 +7,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Inter', sans-serif; background: #f9fafb; padding: 1.5rem; color: #111; margin:0; }
-    /* sticky header with toggle */
-    header { position:sticky; top:0; background:#fff; border-bottom:1px solid #ddd; padding:.6rem 1rem; display:flex; justify-content:space-between; align-items:center; z-index:20; }
-    #toggleBtn{ padding:.35rem .9rem; font-weight:600; border:1px solid #999; background:#f5f5f5; border-radius:.5rem; cursor:pointer; }
-    #toggleBtn:hover{ background:#eaeaea; }
-    /* layout */
+    header { position:sticky; top:0; background:#fff; border-bottom:1px solid #ddd; padding:.6rem 1rem; display:flex; align-items:center; z-index:20; }
+    h1 { margin:0; font-size:1.15rem; }
     .entry { display:flex; justify-content:space-between; gap:2rem; margin:2rem 0; flex-wrap:wrap; background:#fff; padding:1rem 1.5rem; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,0.05); }
     .left{ flex:1 1 300px; }
     .right{ flex:1 1 300px; }
@@ -23,31 +20,28 @@
     .kakao{ background:#ffe812; color:#111; }
     .restaurant-links ul{ padding-left:1.2rem; margin-top:.5rem; }
     .restaurant-links a{ color:#2563eb; text-decoration:none; }
-    /* edit mode cue */
-    .editing [contenteditable="true"]{ outline:2px dashed #4a90e2; background:#fdfdff; border-radius:4px; }
   </style>
 </head>
 <body>
   <header>
-    <h1 style="margin:0;font-size:1.15rem;">🇰🇷 2025 봄 한국 여행</h1>
-    <button id="toggleBtn" aria-pressed="false">Edit</button>
+    <h1>🇰🇷 2025 봄 한국 여행</h1>
   </header>
 
   <!-- Main itinerary -->
   <div id="itinerary">
     <div class="entry">
       <div class="left">
-        <h2 contenteditable="false">4/22–24 수원 (Suwon)</h2>
-        <p contenteditable="false">경기도 수원시 장안구 만석로20번길 25</p>
-        <p contenteditable="false">Changsung-ro 20beon-gil 25, Jangan-gu, Suwon-si, Gyeonggi-do</p>
+        <h2>4/22–24 수원 (Suwon)</h2>
+        <p>경기도 수원시 장안구 만석로20번길 25</p>
+        <p>Changsung-ro 20beon-gil 25, Jangan-gu, Suwon-si, Gyeonggi-do</p>
         <div class="map-buttons">
           <a class="naver" href="https://map.naver.com/v5/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%88%98%EC%9B%90%EC%8B%9C%20%EC%9E%A5%EC%95%88%EA%B5%AC%20%EB%A7%8C%EC%84%B1%EB%A1%9C20%EB%B2%88%EA%B8%B8%2025" target="_blank">Naver 지도</a>
           <a class="kakao" href="https://map.kakao.com/link/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%88%98%EC%9B%90%EC%8B%9C%20%EC%9E%A5%EC%95%88%EA%B5%AC%20%EB%A7%8C%EC%84%B1%EB%A1%9C20%EB%B2%88%EA%B8%B8%2025" target="_blank">Kakao 지도</a>
         </div>
       </div>
       <div class="right restaurant-links">
-        <h3 contenteditable="false">추천 식사 (4/24 저녁)</h3>
-        <ul contenteditable="false">
+        <h3>추천 식사 (4/24 저녁)</h3>
+        <ul>
           <li><a href="https://www.diningcode.com/profile.php?rid=c6m8u1fRdQUN" target="_blank">들깨수제비</a></li>
           <li><a href="https://www.diningcode.com/profile.php?rid=Nd36vJklE9Fo" target="_blank">황금콩밭</a></li>
           <li><a href="https://blog.naver.com/cozy95/221946990545" target="_blank">DUBU Heaven</a></li>
@@ -57,24 +51,24 @@
 
     <div class="entry">
       <div class="left">
-        <h2 contenteditable="false">4/24–5/3 서울 (Seoul)</h2>
-        <p contenteditable="false">서울 마포구 창전로 26, 서강GS아파트 103동 401호</p>
-        <p contenteditable="false">26 Changjeon-ro, Mapo-gu, Seoul, Building 103, Apt 401</p>
+        <h2>4/24–5/3 서울 (Seoul)</h2>
+        <p>서울 마포구 창전로 26, 서강GS아파트 103동 401호</p>
+        <p>26 Changjeon-ro, Mapo-gu, Seoul, Building 103, Apt 401</p>
         <div class="map-buttons">
           <a class="naver" href="https://map.naver.com/v5/search/%EC%84%9C%EC%9A%B8%20%EB%A7%88%ED%8F%AC%EA%B5%AC%20%EC%B0%BD%EC%A0%84%EB%A1%9C%2026" target="_blank">Naver 지도</a>
           <a class="kakao" href="https://map.kakao.com/link/search/%EC%84%9C%EC%9A%B8%20%EB%A7%88%ED%8F%AC%EA%B5%AC%20%EC%B0%BD%EC%A0%84%EB%A1%9C%2026" target="_blank">Kakao 지도</a>
         </div>
       </div>
       <div class="right">
-        <p contenteditable="false">‍♀️ 스킨케어: <a href="https://www.re-ele.com/about/branch.php" target="_blank">re‑ele clinic (홍대)</a></p>
+        <p>‍♀️ 스킨케어: <a href="https://www.re-ele.com/about/branch.php" target="_blank">re‑ele clinic (홍대)</a></p>
       </div>
     </div>
 
     <div class="entry">
       <div class="left">
-        <h2 contenteditable="false">5/3 광주 (Gwangju)</h2>
-        <p contenteditable="false">광주광역시 광산구 상무대로205번길 6, 3층 (롯데렌터카)</p>
-        <p contenteditable="false">3F, 6 Sangmu-daero 205beon-gil, Gwangsan-gu, Gwangju</p>
+        <h2>5/3 광주 (Gwangju)</h2>
+        <p>광주광역시 광산구 상무대로205번길 6, 3층 (롯데렌터카)</p>
+        <p>3F, 6 Sangmu-daero 205beon-gil, Gwangsan-gu, Gwangju</p>
         <div class="map-buttons">
           <a class="naver" href="https://map.naver.com/v5/search/%EA%B4%91%EC%A3%BC%EA%B4%91%EC%97%AD%EC%8B%9C%20%EA%B4%91%EC%82%B0%EA%B5%AC%20%EC%83%81%EB%AC%B4%EB%8C%80%EB%A1%9C205%EB%B2%88%EA%B8%B8%206" target="_blank">Naver 지도</a>
           <a class="kakao" href="https://map.kakao.com/link/search/%EA%B4%91%EC%A3%BC%EA%B4%91%EC%97%AD%EC%8B%9C%20%EA%B4%91%EC%82%B0%EA%B5%AC%20%EC%83%81%EB%AC%B4%EB%8C%80%EB%A1%9C205%EB%B2%88%EA%B8%B8%206" target="_blank">Kakao 지도</a>
@@ -84,9 +78,9 @@
 
     <div class="entry">
       <div class="left">
-        <h2 contenteditable="false">5/3–4 광주 (Gwangju)</h2>
-        <p contenteditable="false">광주 서구 시청로 53, 유탑 유블레스 호텔</p>
-        <p contenteditable="false">53 Sicheong-ro, Seo-gu, Gwangju</p>
+        <h2>5/3–4 광주 (Gwangju)</h2>
+        <p>광주 서구 시청로 53, 유탑 유블레스 호텔</p>
+        <p>53 Sicheong-ro, Seo-gu, Gwangju</p>
         <div class="map-buttons">
           <a class="naver" href="https://map.naver.com/v5/search/%EA%B4%91%EC%A3%BC%20%EC%84%9C%EA%B5%AC%20%EC%8B%9C%EC%B2%AD%EB%A1%9C%2053" target="_blank">Naver 지도</a>
           <a class="kakao" href="https://map.kakao.com/link/search/%EA%B4%91%EC%A3%BC%20%EC%84%9C%EA%B5%AC%20%EC%8B%9C%EC%B2%AD%EB%A1%9C%2053" target="_blank">Kakao 지도</a>
@@ -96,9 +90,9 @@
 
     <div class="entry">
       <div class="left">
-        <h2 contenteditable="false">5/4–6 보성 (Boseong)</h2>
-        <p contenteditable="false">전라남도 보성군 복내면 개기로 1529-45</p>
-        <p contenteditable="false">1529-45, Gaegi-ro, Bongnae-myeon, Boseong-gun, Jeollanam-do</p>
+        <h2>5/4–6 보성 (Boseong)</h2>
+        <p>전라남도 보성군 복내면 개기로 1529-45</p>
+        <p>1529-45, Gaegi-ro, Bongnae-myeon, Boseong-gun, Jeollanam-do</p>
         <div class="map-buttons">
           <a class="naver" href="https://map.naver.com/v5/search/%EC%A0%84%EB%9D%BC%EB%82%A8%EB%8F%84%20%EB%B3%B4%EC%84%B1%EA%B5%B0%20%EB%B3%B5%EB%82%B4%EB%A9%B4%20%EA%B0%9C%EA%B8%B0%EB%A1%9C%201529-45" target="_blank">Naver 지도</a>
           <a class="kakao" href="https://map.kakao.com/link/search/%EC%A0%84%EB%9D%BC%EB%82%A8%EB%8F%84%20%EB%B3%B4%EC%84%B1%EA%B5%B0%20%EB%B3%B5%EB%82%B4%EB%A9%B4%20%EA%B0%9C%EA%B8%B0%EB%A1%9C%201529-45" target="_blank">Kakao 지도</a>
@@ -108,8 +102,8 @@
 
     <div class="entry">
       <div class="left">
-        <h2 contenteditable="false">5/7–8 광주 (Gwangju)</h2>
-        <p contenteditable="false">UTOP 53, 시청로 53, 서구, 광주</p>
+        <h2>5/7–8 광주 (Gwangju)</h2>
+        <p>UTOP 53, 시청로 53, 서구, 광주</p>
         <div class="map-buttons">
           <a class="naver" href="https://map.naver.com/v5/search/UTOP%2053%20%EC%8B%9C%EC%B2%AD%EB%A1%9C%2053%20%EC%84%9C%EA%B5%AC%20%EA%B4%91%EC%A3%BC" target="_blank">Naver 지도</a>
           <a class="kakao" href="https://map.kakao.com/link/search/UTOP%2053%20%EC%8B%9C%EA%B5%AC%EA%B4%91%EC%A3%BC" target="_blank">Kakao 지도</a>
@@ -119,52 +113,32 @@
 
     <div class="entry">
       <div class="left">
-        <h2 contenteditable="false">5/8–11 서울 (Seoul)</h2>
-        <p contenteditable="false">서강GS아파트 103동 401호, 창전로 26, 마포구, 서울</p>
+        <h2>5/8–11 서울 (Seoul)</h2>
+        <p>서강GS아파트 103동 401호, 창전로 26, 마포구, 서울</p>
         <div class="map-buttons">
-          <a class="naver" href="https://map.naver.com/v5/search/서강GS아파트%20103동%20401호%20창전로%2026" target="_blank">Naver 지도</a>
-          <a class="kakao" href="https://map.kakao.com/link/search/서강GS아파트%20103동%20401호%20창전로%2026" target="_blank">Kakao 지도</a>
+          <a class="naver" href="https://map.naver.com/v5/search/%EC%84%9C%EA%B0%95GS%EC%95%84%ED%8C%8C%ED%8A%B8%20103%EB%8F%99%20401%ED%98%B8%20%EC%B0%BD%EC%A0%84%EB%A1%9C%2026" target="_blank">Naver 지도</a>
+          <a class="kakao" href="https://map.kakao.com/link/search/%EC%84%9C%EA%B0%95GS%EC%95%84%ED%8C%8C%ED%8A%B8%20103%EB%8F%99%20401%ED%98%B8%20%EC%B0%BD%EC%A0%84%EB%A1%9C%2026" target="_blank">Kakao 지도</a>
         </div>
       </div>
     </div>
 
     <div class="entry">
       <div class="left">
-        <h2 contenteditable="false">5/12–13 수원 (Suwon)</h2>
-        <p contenteditable="false">수원시 장안구 영화동 320-2</p>
+        <h2>5/12–13 수원 (Suwon)</h2>
+        <p>수원시 장안구 영화동 320-2</p>
         <div class="map-buttons">
-          <a class="naver" href="https://map.naver.com/v5/search/수원시%20장안구%20영화동%20320-2" target="_blank">Naver 지도</a>
-          <a class="kakao" href="https://map.kakao.com/link/search/수원시%20장안구%20영화동%20320-2" target="_blank">Kakao 지도</a>
+          <a class="naver" href="https://map.naver.com/v5/search/%EC%88%98%EC%9B%90%EC%8B%9C%20%EC%9E%A5%EC%95%88%EA%B5%AC%20%EC%98%81%ED%99%94%EB%8F%99%20320-2" target="_blank">Naver 지도</a>
+          <a class="kakao" href="https://map.kakao.com/link/search/%EC%88%98%EC%9B%90%EC%8B%9C%20%EC%9E%A5%EC%95%88%EA%B5%AC%20%EC%98%81%ED%99%94%EB%8F%99%20320-2" target="_blank">Kakao 지도</a>
         </div>
       </div>
     </div>
 
     <div class="entry">
       <div class="left">
-        <h2 contenteditable="false">5/13 귀국</h2>
-        <p contenteditable="false">Flight DL0170 from Incheon T2 at 6:40 PM</p>
+        <h2>5/13 귀국</h2>
+        <p>Flight DL0170 from Incheon T2 at 6:40 PM</p>
       </div>
     </div>
-  </div><!-- /itinerary -->
-
-  <script>
-    const btn = document.getElementById('toggleBtn');
-    let editing = false;
-    const editableSelector = '.entry h2, .entry p, .entry ul, .entry li, .entry h3';
-
-    btn.addEventListener('click', () => {
-      editing = !editing;
-      document.body.classList.toggle('editing', editing);
-      btn.textContent = editing ? 'View' : 'Edit';
-      btn.setAttribute('aria-pressed', editing);
-      document.querySelectorAll(editableSelector).forEach(el => {
-        if (editing) {
-          el.setAttribute('contenteditable', 'true');
-        } else {
-          el.removeAttribute('contenteditable');
-        }
-      });
-    });
-  </script>
+  </div>
 </body>
 </html>
