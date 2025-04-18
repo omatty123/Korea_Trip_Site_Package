@@ -7,136 +7,138 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     <style>
+ <style>
   /* 1. Import fonts */
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@600;700&display=swap');
 
-  /* 2. Color & font variables */
+  /* 2. Variables */
   :root {
-    --bg: #f4f7f6;          /* very light mint */
-    --fg: #111;             /* dark text */
-    --accent-teal: #0a7b83; /* map button teal */
-    --accent-yellow: #ffe812; /* map button yellow */
+    --bg-page: #e6ecea;      /* soft minty gray */
+    --bg-card: #f9fcfa;      /* near-white, gentle contrast */
+    --text-dark: #222222;    /* dark charcoal */
+    --teal: #03c75a;         /* Naver button */
+    --yellow: #ffe812;       /* Kakao button */
     --font-body: 'Inter', sans-serif;
     --font-head: 'Poppins', sans-serif;
+
+    /* base font sizes */
+    --fz-base: 1.125rem;     /* 18px */
+    --fz-lg:   1.25rem;      /* 20px */
+    --fz-xl:   1.5rem;       /* 24px */
   }
 
-  /* 3. Base */
+  /* 3. Page & typography */
   body {
     margin: 0;
     padding: 1.5rem;
-    background: var(--bg);
-    color: var(--fg);
+    background: var(--bg-page);
+    color: var(--text-dark);
     font-family: var(--font-body);
+    font-size: var(--fz-base);
     line-height: 1.6;
-    font-weight: 300;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-head);
+    color: var(--text-dark);
+    margin: 0;
+    font-weight: 600;
+  }
+  h1 { font-size: var(--fz-xl); margin-bottom: 0.75rem; }
+  h2 { font-size: 1.375rem; margin: 0.5rem 0; }
+  h3 { font-size: 1.25rem; margin: 0.4rem 0; }
+
+  p, ul, ol, li {
+    font-size: var(--fz-base);
+    margin: 0.25rem 0;
+  }
+
+  a {
+    font-weight: 600;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
   }
 
   /* 4. Header & toggle */
   header {
     position: sticky;
     top: 0;
-    background: #fff;
-    border-bottom: 1px solid #ddd;
-    padding: .6rem 1rem;
+    background: var(--bg-card);
+    border-bottom: 1px solid #ccc;
+    padding: 0.75rem 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 20;
+    z-index: 10;
   }
-
   #toggleBtn {
     font-family: var(--font-body);
+    font-size: var(--fz-base);
     font-weight: 600;
-    padding: .35rem .9rem;
-    border: 1px solid #999;
-    background: #f5f5f5;
-    border-radius: .5rem;
+    background: var(--bg-card);
+    border: 1px solid #bbb;
+    padding: 0.4rem 0.9rem;
+    border-radius: 0.5rem;
     cursor: pointer;
   }
   #toggleBtn:hover {
-    background: #eaeaea;
+    background: #eee;
   }
 
-  /* 5. Entries */
+  /* 5. Itinerary cards */
   .entry {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-    margin: 2rem 0;
-    background: #fff;
+    background: var(--bg-card);
     padding: 1rem 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    margin-bottom: 1.5rem;
+    display: flex;
     flex-wrap: wrap;
+    gap: 1.5rem;
   }
   .left, .right {
     flex: 1 1 300px;
   }
 
-  /* 6. Typography */
-  h1 {
-    margin: 0;
-    font-size: 1.15rem;
-    font-family: var(--font-head);
-    font-weight: 600;
-  }
-  h2 {
-    font-size: 1.25rem;
-    margin: .1rem 0 .6rem;
-    font-family: var(--font-head);
-    font-weight: 600;
-  }
-  h3 {
-    font-size: 1rem;
-    margin-top: .25rem;
-    font-family: var(--font-head);
-    font-weight: 600;
-  }
-  p {
-    margin: .25rem 0;
-  }
-
-  /* 7. Map buttons */
+  /* 6. Map buttons */
   .map-buttons a {
     display: inline-block;
-    padding: .3rem .75rem;
-    margin: .4rem .5rem .2rem 0;
-    font-size: .85rem;
-    text-decoration: none;
-    border-radius: 4px;
+    font-size: var(--fz-base);
     font-family: var(--font-body);
     font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    margin: 0.3rem 0.5rem 0.2rem 0;
+    border-radius: 4px;
+    text-decoration: none;
   }
   .map-buttons .naver {
-    background: var(--accent-teal);
+    background: var(--teal);
     color: #fff;
   }
   .map-buttons .kakao {
-    background: var(--accent-yellow);
-    color: var(--fg);
+    background: var(--yellow);
+    color: var(--text-dark);
   }
 
-  /* 8. Restaurant links */
+  /* 7. Restaurant lists */
   .restaurant-links ul {
     padding-left: 1.2rem;
-    margin-top: .5rem;
+    margin-top: 0.5rem;
   }
   .restaurant-links a {
-    color: #2563eb;
-    text-decoration: none;
-    font-family: var(--font-body);
-    font-weight: 400;
-  }
-  .restaurant-links a:hover {
-    text-decoration: underline;
+    color: #1976d2;
   }
 
-  /* 9. Edit‑mode cue */
+  /* 8. Edit-mode outline */
   .editing .editable[contenteditable="true"] {
-    outline: 2px dashed var(--accent-teal);
-    background: #fdfdff;
+    outline: 2px dashed var(--teal);
+    background: #fcfcfd;
     border-radius: 4px;
   }
+</style>
+
 </style>
   </style>
 </head>
