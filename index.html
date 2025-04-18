@@ -8,51 +8,52 @@
   <style>
     <style>
  <style>
-  /* 1. Import fonts */
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@600;700&display=swap');
+ <style>
+  /* 1. Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600&display=swap');
 
   /* 2. Variables */
   :root {
-    --bg-page: #e6ecea;      /* soft minty gray */
-    --bg-card: #f9fcfa;      /* near-white, gentle contrast */
-    --text-dark: #222222;    /* dark charcoal */
-    --teal: #03c75a;         /* Naver button */
-    --yellow: #ffe812;       /* Kakao button */
-    --font-body: 'Inter', sans-serif;
-    --font-head: 'Poppins', sans-serif;
-
-    /* base font sizes */
-    --fz-base: 1.125rem;     /* 18px */
-    --fz-lg:   1.25rem;      /* 20px */
-    --fz-xl:   1.5rem;       /* 24px */
+    --bg-page:  #e0e0e0;  /* neutral light gray page */
+    --bg-card:  #fafaf8;  /* soft off‑white cards */
+    --text:     #222222;  /* dark charcoal */
+    --font-body:'Inter', sans-serif;
+    --font-head:'Poppins', sans-serif;
+    --fz-base:  18px;
+    --fz-h1:    26px;
+    --fz-h2:    22px;
+    --fz-h3:    20px;
   }
 
-  /* 3. Page & typography */
+  /* 3. Page & Typography */
   body {
     margin: 0;
     padding: 1.5rem;
     background: var(--bg-page);
-    color: var(--text-dark);
+    color: var(--text);
     font-family: var(--font-body);
     font-size: var(--fz-base);
     line-height: 1.6;
   }
-
-  h1, h2, h3, h4, h5, h6 {
+  h1 {
     font-family: var(--font-head);
-    color: var(--text-dark);
-    margin: 0;
-    font-weight: 600;
+    font-size: var(--fz-h1);
+    margin: 0 0 0.75rem;
   }
-  h1 { font-size: var(--fz-xl); margin-bottom: 0.75rem; }
-  h2 { font-size: 1.375rem; margin: 0.5rem 0; }
-  h3 { font-size: 1.25rem; margin: 0.4rem 0; }
-
-  p, ul, ol, li {
-    font-size: var(--fz-base);
+  h2 {
+    font-family: var(--font-head);
+    font-size: var(--fz-h2);
+    margin: 0.5rem 0 0.25rem;
+  }
+  h3 {
+    font-family: var(--font-head);
+    font-size: var(--fz-h3);
+    margin: 0.4rem 0;
+  }
+  p, ul, li {
     margin: 0.25rem 0;
+    font-size: var(--fz-base);
   }
-
   a {
     font-weight: 600;
     text-decoration: none;
@@ -61,7 +62,7 @@
     text-decoration: underline;
   }
 
-  /* 4. Header & toggle */
+  /* 4. Header & Toggle */
   header {
     position: sticky;
     top: 0;
@@ -79,12 +80,12 @@
     font-weight: 600;
     background: var(--bg-card);
     border: 1px solid #bbb;
-    padding: 0.4rem 0.9rem;
+    padding: 0.4rem 0.8rem;
     border-radius: 0.5rem;
     cursor: pointer;
   }
   #toggleBtn:hover {
-    background: #eee;
+    background: #ececec;
   }
 
   /* 5. Itinerary cards */
@@ -102,11 +103,11 @@
     flex: 1 1 300px;
   }
 
-  /* 6. Map buttons */
+  /* 6. Map buttons (keep green/yellow) */
   .map-buttons a {
     display: inline-block;
-    font-size: var(--fz-base);
     font-family: var(--font-body);
+    font-size: var(--fz-base);
     font-weight: 600;
     padding: 0.4rem 0.8rem;
     margin: 0.3rem 0.5rem 0.2rem 0;
@@ -114,15 +115,15 @@
     text-decoration: none;
   }
   .map-buttons .naver {
-    background: var(--teal);
+    background: #03c75a;
     color: #fff;
   }
   .map-buttons .kakao {
-    background: var(--yellow);
-    color: var(--text-dark);
+    background: #ffe812;
+    color: #111;
   }
 
-  /* 7. Restaurant lists */
+  /* 7. Restaurant links */
   .restaurant-links ul {
     padding-left: 1.2rem;
     margin-top: 0.5rem;
@@ -131,12 +132,14 @@
     color: #1976d2;
   }
 
-  /* 8. Edit-mode outline */
+  /* 8. Edit‑mode outline */
   .editing .editable[contenteditable="true"] {
-    outline: 2px dashed var(--teal);
-    background: #fcfcfd;
+    outline: 2px dashed #03c75a;
+    background: #fdfdfd;
     border-radius: 4px;
   }
+</style>
+
 </style>
 
 </style>
