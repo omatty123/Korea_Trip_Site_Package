@@ -6,288 +6,93 @@
   <title>2025 봄 한국 여행 – 일정 및 지도</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    <style>
- <style>
- <style>
-  /* 1. Fonts */
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #000;
+      color: #f1f1f1;
+      margin: 0;
+      padding: 1.5rem;
+    }
 
-  /* 2. Variables */
-  :root {
-    --bg-page:  #e0e0e0;  /* neutral light gray page */
-    --bg-card:  #fafaf8;  /* soft off‑white cards */
-    --text:     #222222;  /* dark charcoal */
-    --font-body:'Inter', sans-serif;
-    --font-head:'Poppins', sans-serif;
-    --fz-base:  18px;
-    --fz-h1:    26px;
-    --fz-h2:    22px;
-    --fz-h3:    20px;
-  }
+    header {
+      position: sticky;
+      top: 0;
+      background: #111;
+      border-bottom: 1px solid #333;
+      padding: .6rem 1rem;
+      z-index: 10;
+    }
 
-  /* 3. Page & Typography */
-  body {
-    margin: 0;
-    padding: 1.5rem;
-    background: var(--bg-page);
-    color: var(--text);
-    font-family: var(--font-body);
-    font-size: var(--fz-base);
-    line-height: 1.6;
-  }
-  h1 {
-    font-family: var(--font-head);
-    font-size: var(--fz-h1);
-    margin: 0 0 0.75rem;
-  }
-  h2 {
-    font-family: var(--font-head);
-    font-size: var(--fz-h2);
-    margin: 0.5rem 0 0.25rem;
-  }
-  h3 {
-    font-family: var(--font-head);
-    font-size: var(--fz-h3);
-    margin: 0.4rem 0;
-  }
-  p, ul, li {
-    margin: 0.25rem 0;
-    font-size: var(--fz-base);
-  }
-  a {
-    font-weight: 600;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin: 0;
+      color: #fff;
+    }
 
-  /* 4. Header & Toggle */
-  header {
-    position: sticky;
-    top: 0;
-    background: var(--bg-card);
-    border-bottom: 1px solid #ccc;
-    padding: 0.75rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 10;
-  }
-  #toggleBtn {
-    font-family: var(--font-body);
-    font-size: var(--fz-base);
-    font-weight: 600;
-    background: var(--bg-card);
-    border: 1px solid #bbb;
-    padding: 0.4rem 0.8rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-  }
-  #toggleBtn:hover {
-    background: #ececec;
-  }
+    .card {
+      background: #111;
+      border: 1px solid #333;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 1px 2px rgba(255, 255, 255, 0.05);
+    }
 
-  /* 5. Itinerary cards */
-  .entry {
-    background: var(--bg-card);
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-    margin-bottom: 1.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-  }
-  .left, .right {
-    flex: 1 1 300px;
-  }
+    .card h2 {
+      font-size: 1.2rem;
+      margin-bottom: .4rem;
+      color: #f9f9f9;
+    }
 
-  /* 6. Map buttons (keep green/yellow) */
-  .map-buttons a {
-    display: inline-block;
-    font-family: var(--font-body);
-    font-size: var(--fz-base);
-    font-weight: 600;
-    padding: 0.4rem 0.8rem;
-    margin: 0.3rem 0.5rem 0.2rem 0;
-    border-radius: 4px;
-    text-decoration: none;
-  }
-  .map-buttons .naver {
-    background: #03c75a;
-    color: #fff;
-  }
-  .map-buttons .kakao {
-    background: #ffe812;
-    color: #111;
-  }
+    .card p {
+      margin: .2rem 0;
+      color: #ccc;
+    }
 
-  /* 7. Restaurant links */
-  .restaurant-links ul {
-    padding-left: 1.2rem;
-    margin-top: 0.5rem;
-  }
-  .restaurant-links a {
-    color: #1976d2;
-  }
+    .buttons {
+      margin-top: .5rem;
+    }
 
-  /* 8. Edit‑mode outline */
-  .editing .editable[contenteditable="true"] {
-    outline: 2px dashed #03c75a;
-    background: #fdfdfd;
-    border-radius: 4px;
-  }
-</style>
+    .map-btn {
+      display: inline-block;
+      margin-right: .5rem;
+      padding: .4rem .75rem;
+      font-size: .9rem;
+      font-weight: bold;
+      background-color: #2ecc71;
+      color: #000;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
 
-</style>
+    .map-btn.kakao {
+      background-color: #f1c40f;
+    }
 
-</style>
+    .map-btn:hover {
+      opacity: 0.9;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>🇰🇷 2025 봄 한국 여행</h1>
+    <h1>🌸 2025 봄 한국 여행 – 일정 및 지도</h1>
   </header>
 
-  <div id="itinerary">
-    <!-- Suwon -->
-    <div class="entry">
-      <div class="left">
-        <h2>4/22–24 수원 (Suwon)</h2>
-        <p>경기도 수원시 장안구 만석로20번길 25</p>
-        <p>Changsung-ro 20beon-gil 25, Jangan-gu, Suwon-si, Gyeonggi-do</p>
-        <div class="map-buttons">
-          <a class="naver" href="nmap://search?query=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%88%98%EC%9B%90%EC%8B%9C%20%EC%9E%A5%EC%95%88%EA%B5%AC%20%EB%A7%8C%EC%84%B1%EB%A1%9C20%EB%B2%88%EA%B8%B8%2025">Naver 지도</a>
-          <a class="kakao" href="kakaomap://search?q=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%88%98%EC%9B%90%EC%8B%9C%20%EC%9E%A5%EC%95%88%EA%B5%AC%20%EB%A7%8C%EC%84%B1%EB%A1%9C20%EB%B2%88%EA%B8%B8%2025">Kakao 지도</a>
-        </div>
-      </div>
-      <div class="right"></div>
-    </div>
-
-    <!-- Seoul -->
-    <div class="entry">
-      <div class="left">
-        <h2>4/24–5/3 서울 (Seoul)</h2>
-        <p>서울 마포구 창전로 26, 서강GS아파트 103동 401호</p>
-        <p>26 Changjeon-ro, Mapo-gu, Seoul, Building 103, Apt 401</p>
-        <div class="map-buttons">
-          <a class="naver" href="nmap://search?query=%EC%84%9C%EC%9A%B8%20%EB%A7%88%ED%8F%AC%EA%B5%AC%20%EC%B0%BD%EC%A0%84%EB%A1%9C%2026">Naver 지도</a>
-          <a class="kakao" href="kakaomap://search?q=%EC%84%9C%EC%9A%B8%20%EB%A7%88%ED%8F%AC%EA%B5%AC%20%EC%B0%BD%EC%A0%84%EB%A1%9C%2026">Kakao 지도</a>
-        </div>
-      </div>
-      <div class="right">
-        <h3>추천 식사 (4/24 저녁)</h3>
-        <ul>
-          <li><a href="https://www.diningcode.com/profile.php?rid=c6m8u1fRdQUN" target="_blank">들깨수제비</a></li>
-          <li><a href="https://www.diningcode.com/profile.php?rid=Nd36vJklE9Fo" target="_blank">황금콩밭</a></li>
-          <li><a href="https://blog.naver.com/cozy95/221946990545" target="_blank">DUBU Heaven</a></li>
-        </ul>
-        <h3>스킨케어 예약</h3>
-        <a class="booking-links" href="https://www.re-ele.com/about/branch.php" target="_blank">💆 re‑ele clinic (홍대)</a>
-      </div>
-    </div>
-
-    <!-- Gwangju rental -->
-    <div class="entry">
-      <div class="left">
-        <h2>5/3 광주 (Gwangju)</h2>
-        <p>광주광역시 광산구 상무대로205번길 6, 3층 (롯데렌터카)</p>
-        <p>3F, 6 Sangmu-daero 205beon-gil, Gwangsan-gu, Gwangju</p>
-        <div class="map-buttons">
-          <a class="naver" href="nmap://search?query=%EA%B4%91%EC%A3%BC%EA%B4%91%EC%97%AD%EC%8B%9C%20%EA%B4%91%EC%82%B0%EA%B5%AC%20%EC%83%81%EB%AC%B4%EB%8C%80%EB%A1%9C205%EB%B2%88%EA%B8%B8%206">Naver 지도</a>
-          <a class="kakao" href="kakaomap://search?q=%EA%B4%91%EC%A3%BC%EA%B4%91%EC%97%AD%EC%8B%9C%20%EA%B4%91%EC%82%B0%EA%B5%AC%20%EC%83%81%EB%AC%B4%EB%8C%80%EB%A1%9C205%EB%B2%88%EA%B8%B8%206">Kakao 지도</a>
-        </div>
-      </div>
-      <div class="right">
-        <h3>렌터카 예약</h3>
-        <a class="booking-links" href="https://www.lotterentacar.net/hp/eng/login/login.do?mnCd=EN06&returnurl=https%253A%252F%252Fwww.lotterentacar.net%252Fhp%252Feng%252FmyPage%252Freservation.do" target="_blank">🚗 LOTTE Rent-a-Car</a>
-      </div>
-    </div>
-
-    <!-- Gwangju booking -->
-    <div class="entry">
-      <div class="left">
-        <h2>5/3–4 광주 (Gwangju)</h2>
-        <p>광주 서구 시청로 53, 유탑 유블레스 호텔</p>
-        <p>53 Sicheong-ro, Seo-gu, Gwangju</p>
-        <div class="map-buttons">
-          <a class="naver" href="nmap://search?query=%EA%B4%91%EC%A3%BC%20%EC%84%9C%EA%B5%AC%20%EC%8B%9C%EC%B2%AD%EB%A1%9C%2053">Naver 지도</a>
-          <a class="kakao" href="kakaomap://search?q=%EA%B4%91%EC%A3%BC%20%EC%84%9C%EA%B5%AC%20%EC%8B%9C%EC%B2%AD%EB%A1%9C%2053">Kakao 지도</a>
-        </div>
-      </div>
-      <div class="right">
-        <h3>숙소 예약</h3>
-        <a class="booking-links" href="https://www.agoda.com/account/editbooking.html?bookingId=R%2B%2FspViUviL5E1xSAAkoLQ%3D%3D&landFrom=TripDetail&sort=BookingStartDate&state=Upcoming&page=1" target="_blank">🏨 View booking</a>
-      </div>
-    </div>
-
-    <!-- Boseong booking -->
-    <div class="entry">
-      <div class="left">
-        <h2>5/4–6 보성 (Boseong)</h2>
-        <p>전라남도 보성군 복내면 개기로 1529-45</p>
-        <p>1529-45, Gaegi-ro, Bongnae-myeon, Boseong-gun, Jeollanam-do</p>
-        <div class="map-buttons">
-          <a class="naver" href="nmap://search?query=%EC%A0%84%EB%9D%BC%EB%82%A8%EB%8F%84%20%EB%B3%B4%EC%84%B1%EA%B5%B0%20%EB%B3%B5%EB%82%B4%EB%A9%B4%20%EA%B0%9C%EA%B8%B0%EB%A1%9C%201529-45">Naver 지도</a>
-          <a class="kakao" href="kakaomap://search?q=%EC%A0%84%EB%9D%BC%EB%82%A8%EB%8F%84%20%EB%B3%B4%EC%84%B1%EA%B5%B0%20%EB%B3%B5%EB%82%B4%EB%A9%B4%20%EA%B0%9C%EA%B8%B0%EB%A1%9C%201529-45">Kakao 지도</a>
-        </div>
-      </div>
-      <div class="right">
-        <h3>숙소 예약</h3>
-        <a class="booking-links" href="https://www.agoda.com/account/editbooking.html?bookingId=nPMw9c7oGlkyO3KAs%2BE3zQ%3D%3D&landFrom=TripDetail&sort=BookingStartDate&state=Upcoming&page=1" target="_blank">🏨 View booking</a>
-        <h3>투어 링크</h3>
-        <a class="booking-links" href="https://naver.me/5BcQ5bh4" target="_blank">🗺️ Jeong Chanju Boseong Tour</a>
-      </div>
-    </div>
-
-    <!-- Gwangju late stay -->
-    <div class="entry">
-      <div class="left">
-        <h2>5/7–8 광주 (Gwangju)</h2>
-        <p>UTOP 53, 시청로 53, 서구, 광주</p>
-        <div class="map-buttons">
-          <a class="naver" href="nmap://search?query=UTOP%2053%20%EC%8B%9C%EC%B2%AD%EB%A1%9C%2053%20%EC%84%9C%EA%B5%AC%20%EA%B4%91%EC%A3%BC">Naver 지도</a>
-          <a class="kakao" href="kakaomap://search?q=UTOP%2053%20%EC%8B%9C%EC%B2%AD%EB%A1%9C%2053%20%EC%84%9C%EA%B5%AC%20%EA%B4%91%EC%A3%BC">Kakao 지도</a>
-        </div>
-      </div>
-      <div class="right"></div>
-    </div>
-
-    <!-- Seoul return -->
-    <div class="entry">
-      <div class="left">
-        <h2>5/8–11 서울 (Seoul)</h2>
-        <p>서강GS아파트 103동 401호, 창전로 26, 마포구, 서울</p>
-        <div class="map-buttons">
-          <a class="naver" href="nmap://search?query=%EC%84%9C%EA%B0%95GS%EC%95%84%ED%8C%8C%ED%8A%B8%20103%EB%8F%99%20401%ED%98%B8%20%EC%B0%BD%EC%A0%84%EB%A1%9C%2026">Naver 지도</a>
-          <a class="kakao" href="kakaomap://search?q=%EC%84%9C%EA%B0%95GS%EC%95%84%ED%8C%8C%ED%8A%B8%20103%EB%8F%99%20401%ED%98%B8%20%EC%B0%BD%EC%A0%84%EB%A1%9C%2026">Kakao 지도</a>
-        </div>
-      </div>
-      <div class="right"></div>
-    </div>
-
-    <!-- Suwon return -->
-    <div class="entry">
-      <div class="left">
-        <h2>5/12–13 수원 (Suwon)</h2>
-        <p>수원시 장안구 영화동 320-2</p>
-        <div class="map-buttons">
-          <a class="naver" href="nmap://search?query=%EC%88%98%EC%9B%90%EC%8B%9C%20%EC%9E%A5%EC%95%88%EA%B5%AC%20%EC%98%81%ED%99%94%EB%8F%99%20320-2">Naver 지도</a>
-          <a class="kakao" href="kakaomap://search?q=%EC%88%98%EC%9B%90%EC%8B%9C%20%EC%9E%A5%EC%95%88%EA%B5%AC%20%EC%98%81%ED%99%94%EB%8F%99%20320-2">Kakao 지도</a>
-        </div>
-      </div>
-      <div class="right"></div>
-    </div>
-
-    <!-- Return flight -->
-    <div class="entry">
-      <div class="left">
-        <h2>5/13 귀국</h2>
-        <p>Flight DL0170 from Incheon T2 at 6:40 PM</p>
-      </div>
-      <div class="right"></div>
+  <!-- Sample Card -->
+  <div class="card">
+    <h2>📍 5월 3일 – 광주 도착</h2>
+    <p>숙소: UTOP 53, 시청로 53, 서구, 광주</p>
+    <div class="buttons">
+      <a class="map-btn" href="https://naver.me/xxxx" target="_blank">Naver Map</a>
+      <a class="map-btn kakao" href="https://map.kakao.com/link/to/xxxx" target="_blank">Kakao Map</a>
     </div>
   </div>
+
+  <!-- More cards go here -->
+
 </body>
 </html>
