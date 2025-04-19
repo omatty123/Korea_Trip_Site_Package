@@ -53,21 +53,8 @@
     <h1>🌸 2025 봄 한국 여행 – 일정 및 지도</h1>
   </header>
 
-  <!-- EXAMPLE CARD WITH CUSTOM BUTTON COLORS -->
-  <div class="card">
-    <h2>📍 5월 3: 광주</h2>
-    <p>🏨 UTOP 53, 시청로 53, 서구, 광주</p>
-    <p>🚗 LOTTE 렌터카: Gwangju 송정역 지점</p>
-    <div class="buttons">
-      <a class="map-btn agoda" href="https://www.agoda.com/account/editbooking.html?bookingId=R%2B%2FspViUviL5E1xSAAkoLQ%3D%3D" target="_blank">Agoda</a>
-      <a class="map-btn lotte" href="https://www.lotterentacar.net/hp/eng/login/login.do?mnCd=EN06&returnurl=https%253A%252F%252Fwww.lotterentacar.net%252Fhp%252Feng%252FmyPage%252Freservation.do" target="_blank">LOTTE 렌터카</a>
-      <a class="map-btn kakao" href="https://map.kakao.com/link/search/광주 서구 시청로 53" target="_blank">Kakao Map</a>
-      <a class="map-btn" href="https://map.naver.com/v5/search/광주 서구 시청로 53" target="_blank">Naver Map</a>
-    </div>
-    <div class="weather" data-city="Gwangju">🌦️ 광주 날씨 불러오는 중...</div>
-  </div>
-
-  <!-- Repeat for other cities as needed... -->
+  <!-- YOUR FULL TRIP CARDS GO HERE -->
+  <!-- Replace this comment with all the real cards (Suwon, Seoul, Gwangju, Boseong, etc.) -->
 
   <!-- WEATHER SCRIPT -->
   <script>
@@ -82,14 +69,14 @@
       { key: /thunder/i, emoji: "⛈" },
       { key: /rain|shower/i, emoji: "🌧" },
       { key: /snow/i, emoji: "🌨" },
-      { key: /cloud|overcast/i, emoji: "☁️" },
+      { key: /cloud|overcast/i, emoji: "☁" },
       { key: /partly|few/i, emoji: "⛅" },
-      { key: /sun|clear/i, emoji: "☀️" }
+      { key: /sun|clear/i, emoji: "☀" }
     ];
 
     function iconFrom(desc) {
       const found = emojiMap.find(e => e.key.test(desc));
-      return found ? found.emoji : "🌦️";
+      return found ? found.emoji : "🌦";
     }
 
     function cToF(c) {
