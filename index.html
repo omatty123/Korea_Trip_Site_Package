@@ -7,8 +7,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Inter', sans-serif; background: #000; color: #f1f1f1; margin: 0; padding: 1.5rem; }
-    header { position: sticky; top: 0; background: #111; border-bottom: 1px solid #333; padding: .6rem 1rem; z-index: 10; }
-    h1 { font-size: 1.6rem; font-weight: 600; margin: 0; color: #fff; }
+    .hero {
+      background: url('musung.jpg') center/cover no-repeat;
+      height: 200px;
+      border-radius: 1rem;
+      margin: 1rem 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero h1 {
+      font-size: 1.8rem;
+      color: white;
+      background: rgba(0, 0, 0, 0.5);
+      padding: .5rem 1rem;
+      border-radius: .5rem;
+    }
     .card { background: #111; border: 1px solid #333; padding: 1rem; border-radius: .75rem; margin-bottom: 1rem; box-shadow: 0 1px 2px rgba(255,255,255,.05); }
     .card h2 { font-size: 1.2rem; margin-bottom: .4rem; color: #f9f9f9; }
     .card p { margin: .2rem 0; color: #ccc; line-height: 1.4; }
@@ -20,15 +34,12 @@
     li a { color: #8fd4ff; text-decoration: underline; }
     h3 { margin-top: 1rem; color: #fff; }
     .weather { white-space: pre-wrap; margin-top: .5rem; font-size: .9rem; color: #aaa; line-height: 1.4; }
-    img.header-image { width: 100%; border-radius: 1rem; margin: 1rem 0; }
   </style>
 </head>
 <body>
-  <header>
+  <header class="hero">
     <h1>🌸 2025 봄 한국 여행 – 일정 및 지도</h1>
   </header>
-
-  <img src="musung.jpg" alt="무성서원 전경" class="header-image" />
 
   <!-- Suwon -->
   <div class="card">
@@ -130,52 +141,40 @@
   </div>
 
   <!-- Weather Script -->
- <script>
-  const cityMap = {
-    Suwon: "수원",
-    Seoul: "서울",
-    Gwangju: "광주",
-    Boseong: "보성"
-  };
+  <script>
+    const cityMap = {
+      Suwon: "수원",
+      Seoul: "서울",
+      Gwangju: "광주",
+      Boseong: "보성"
+    };
 
-  const emojiMap = [
-    { key: /thunder/i, emoji: "⛈" },
-    { key: /rain|shower/i, emoji: "🌧" },
-    { key: /snow/i, emoji: "🌨" },
-    { key: /cloud|overcast/i, emoji: "☁️" },
-    { key: /partly|few/i, emoji: "⛅" },
-    { key: /sun|clear/i, emoji: "☀️" }
-  ];
+    const iconCycle = ['☀️', '🌧', '⛅'];
 
-  function iconFrom(desc) {
-    const found = emojiMap.find(e => e.key.test(desc));
-    return found ? found.emoji : "🌦️";
-  }
+    async function fetchForecast(city, el) {
+      try {
+        const res = await fetch(`https://wttr.in/${city}?format=%h+%p\\n%h+%p\\n%h+%p`);
+        const lines = (await res.text()).trim().split("\\n");
+        const days = ['월', '화', '수'];
 
-  async function fetchForecast(city, el) {
-    try {
-      const res = await fetch(`https://wttr.in/${city}?format=%C+%t+%p\\n%C+%t+%p\\n%C+%t+%p`);
-      const lines = (await res.text()).trim().split("\\n");
-      const days = ['월', '화', '수'];
+        const forecast = lines.map((line, i) => {
+          const [temp, precip] = line.split(' ');
+          const icon = iconCycle[i] || '🌦️';
+          return `${days[i]}: ${icon} ${temp} / 💧${precip}`;
+        });
 
-      const output = lines.map((line, i) => {
-        const [desc, temp, precip] = line.split(' ');
-        const emoji = iconFrom(desc);
-        return `${days[i]}: ${emoji} ${temp} / 💧${precip}`;
-      });
-
-      el.textContent = `🌦️ ${cityMap[city]} 날씨\n` + output.join('\n');
-    } catch (err) {
-      el.textContent = `🌦️ ${cityMap[city]} 날씨를 불러올 수 없습니다.`;
+        el.textContent = `🌦️ ${cityMap[city]} 날씨\n` + forecast.join('\n');
+      } catch (err) {
+        el.textContent = `🌦️ ${cityMap[city]} 날씨를 불러올 수 없습니다.`;
+      }
     }
-  }
 
-  window.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.weather').forEach(el => {
-      const city = el.dataset.city;
-      if (city) fetchForecast(city, el);
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.weather').forEach(el => {
+        const city = el.dataset.city;
+        if (city) fetchForecast(city, el);
+      });
     });
-  });
-</script>
+  </script>
 </body>
 </html>
