@@ -130,46 +130,52 @@
   </div>
 
   <!-- Weather Script -->
-  <script>
-    const cityMap = {
-      Suwon: "수원",
-      Seoul: "서울",
-      Gwangju: "광주",
-      Boseong: "보성"
-    };
+ <script>
+  const cityMap = {
+    Suwon: "수원",
+    Seoul: "서울",
+    Gwangju: "광주",
+    Boseong: "보성"
+  };
 
-    async function fetchForecast(city, el) {
-      try {
-        const res = await fetch(`https://wttr.in/${city}?format=%C+%t+%p\\n%C+%t+%p\\n%C+%t+%p`);
-        const lines = (await res.text()).trim().split('\\n');
-        const days = ['월', '화', '수'];
-        const emojiMap = {
-          "Clear": "☀️", "Sunny": "☀️", "Partly": "⛅", "Cloudy": "☁️", "Overcast": "☁️",
-          "Rain": "🌧", "Showers": "🌧", "Thunderstorm": "⛈", "Snow": "🌨"
-        };
+  const emojiMap = [
+    { key: /thunder/i, emoji: "⛈" },
+    { key: /rain|shower/i, emoji: "🌧" },
+    { key: /snow/i, emoji: "🌨" },
+    { key: /cloud|overcast/i, emoji: "☁️" },
+    { key: /partly|few/i, emoji: "⛅" },
+    { key: /sun|clear/i, emoji: "☀️" }
+  ];
 
-        const linesFormatted = lines.map((line, i) => {
-          const parts = line.split(' ');
-          const condition = parts[0];
-          const temp = parts[1] || '';
-          const precip = parts[2] || '';
-          const icon = emojiMap[condition] || '🌦️';
-          return `${days[i]}: ${icon} ${temp} / 💧${precip}`;
-        });
+  function iconFrom(desc) {
+    const found = emojiMap.find(e => e.key.test(desc));
+    return found ? found.emoji : "🌦️";
+  }
 
-        const output = `🌦️ ${cityMap[city]} 날씨\n` + linesFormatted.join('\n');
-        el.textContent = output;
-      } catch {
-        el.textContent = `🌦️ ${cityMap[city]} 날씨를 불러올 수 없습니다.`;
-      }
-    }
+  async function fetchForecast(city, el) {
+    try {
+      const res = await fetch(`https://wttr.in/${city}?format=%C+%t+%p\\n%C+%t+%p\\n%C+%t+%p`);
+      const lines = (await res.text()).trim().split("\\n");
+      const days = ['월', '화', '수'];
 
-    window.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.weather').forEach(el => {
-        const city = el.dataset.city;
-        if (city) fetchForecast(city, el);
+      const output = lines.map((line, i) => {
+        const [desc, temp, precip] = line.split(' ');
+        const emoji = iconFrom(desc);
+        return `${days[i]}: ${emoji} ${temp} / 💧${precip}`;
       });
+
+      el.textContent = `🌦️ ${cityMap[city]} 날씨\n` + output.join('\n');
+    } catch (err) {
+      el.textContent = `🌦️ ${cityMap[city]} 날씨를 불러올 수 없습니다.`;
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.weather').forEach(el => {
+      const city = el.dataset.city;
+      if (city) fetchForecast(city, el);
     });
-  </script>
+  });
+</script>
 </body>
 </html>
