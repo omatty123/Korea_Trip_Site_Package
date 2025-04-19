@@ -149,22 +149,34 @@
       Boseong: "보성"
     };
 
-    const iconCycle = ['☀️', '🌧', '⛅'];
+    const emojiMap = [
+      { key: /thunder/i, emoji: "⛈" },
+      { key: /rain|shower/i, emoji: "🌧" },
+      { key: /snow/i, emoji: "🌨" },
+      { key: /cloud|overcast/i, emoji: "☁️" },
+      { key: /partly|few/i, emoji: "⛅" },
+      { key: /sun|clear/i, emoji: "☀️" }
+    ];
+
+    function iconFrom(desc) {
+      const found = emojiMap.find(e => e.key.test(desc));
+      return found ? found.emoji : "🌦️";
+    }
 
     async function fetchForecast(city, el) {
       try {
-        const res = await fetch(`https://wttr.in/${city}?format=%h+%p\\n%h+%p\\n%h+%p`);
-        const lines = (await res.text()).trim().split("\\n");
+        const res = await fetch(`https://wttr.in/${city}?format=j1`);
+        const data = await res.json();
         const days = ['월', '화', '수'];
-
-        const forecast = lines.map((line, i) => {
-          const [temp, precip] = line.split(' ');
-          const icon = iconCycle[i] || '🌦️';
-          return `${days[i]}: ${icon} ${temp} / 💧${precip}`;
+        const forecast = data.weather.slice(0, 3).map((day, i) => {
+          const high = day.maxtempC + "°C";
+          const chance = Math.max(...day.hourly.map(h => parseInt(h.chanceofrain || "0")));
+          const desc = day.hourly[4].weatherDesc[0].value;
+          const emoji = iconFrom(desc);
+          return `${days[i]}: ${emoji} ${high} / 💧${chance}%`;
         });
-
         el.textContent = `🌦️ ${cityMap[city]} 날씨\n` + forecast.join('\n');
-      } catch (err) {
+      } catch {
         el.textContent = `🌦️ ${cityMap[city]} 날씨를 불러올 수 없습니다.`;
       }
     }
