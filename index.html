@@ -20,12 +20,15 @@
     li a { color: #8fd4ff; text-decoration: underline; }
     h3 { margin-top: 1rem; color: #fff; }
     .weather { white-space: pre-wrap; margin-top: .5rem; font-size: .9rem; color: #aaa; line-height: 1.4; }
+    img.header-image { width: 100%; border-radius: 1rem; margin: 1rem 0; }
   </style>
 </head>
 <body>
   <header>
     <h1>🌸 2025 봄 한국 여행 – 일정 및 지도</h1>
   </header>
+
+  <img src="무성서원35.jpg" alt="무성서원 전경" class="header-image" />
 
   <!-- Suwon -->
   <div class="card">
@@ -34,7 +37,7 @@
     <p>🚌 인천공항 → 수원 직행버스 4100</p>
     <div class="buttons">
       <a class="map-btn" href="https://map.naver.com/v5/search/만석로 20번길 25" target="_blank">Naver Map</a>
-      <a class="map-btn kakao" href="https://map.kakao.com/link/search/%EB%A7%8C%EC%84%9D%EB%A1%9C%2020%EB%B2%88%EA%B8%B8%2025" target="_blank">Kakao Map</a>
+      <a class="map-btn kakao" href="https://map.kakao.com/link/search/만석로 20번길 25" target="_blank">Kakao Map</a>
     </div>
     <div class="weather" data-city="Suwon">🌦️ 수원 날씨 불러오는 중...</div>
   </div>
@@ -87,12 +90,14 @@
     </div>
     <div class="weather" data-city="Boseong">🌦️ 보성 날씨 불러오는 중...</div>
   </div>
-   <!-- Gwangju -->
+
+  <!-- Gwangju again -->
   <div class="card">
-    <h2>📍 5월 6-8: 광주</h2>
+    <h2>📍 5월 6–8: 광주</h2>
     <div class="weather" data-city="Gwangju">🌦️ 광주 날씨 불러오는 중...</div>
   </div>
-  <!-- Seoul 2 -->
+
+  <!-- Seoul again -->
   <div class="card">
     <h2>📍 5월 7–10: 서울</h2>
     <p>🏠 서강GS아파트 103동 401호</p>
@@ -126,35 +131,36 @@
 
   <!-- Weather Script -->
   <script>
-    async function fetchForecast(city, el) {
-      try {
-        const res = await fetch(`https://wttr.in/${city}?format=%D+%C+%t+%p\\n%D+%C+%t+%p\\n%D+%C+%t+%p`);
-        const lines = await res.text();
-        const out = [`🌦️ ${city} 날씨:`].concat(lines.trim().split('\\n'));
-        el.textContent = out.join('\\n');
-      } catch {
-        el.textContent = `🌦️ ${city} 날씨를 불러올 수 없습니다.`;
-      }
-    }
+    const cityMap = {
+      Suwon: "수원",
+      Seoul: "서울",
+      Gwangju: "광주",
+      Boseong: "보성"
+    };
 
-    window.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.weather').forEach(el => {
-        const city = el.dataset.city;
-        if (city) fetchForecast(city, el);
-      });
-    });
-  </script>
-</body>
-</html>
-  <script>
     async function fetchForecast(city, el) {
       try {
-        const res = await fetch(`https://wttr.in/${city}?format=%D+%C+%t+%p\\n%D+%C+%t+%p\\n%D+%C+%t+%p`);
-        const lines = await res.text();
-        const out = [`🌦️ ${city} 날씨:`].concat(lines.trim().split('\\n'));
-        el.textContent = out.join('\\n');
+        const res = await fetch(`https://wttr.in/${city}?format=%C+%t+%p\\n%C+%t+%p\\n%C+%t+%p`);
+        const lines = (await res.text()).trim().split('\\n');
+        const days = ['월', '화', '수'];
+        const emojiMap = {
+          "Clear": "☀️", "Sunny": "☀️", "Partly": "⛅", "Cloudy": "☁️", "Overcast": "☁️",
+          "Rain": "🌧", "Showers": "🌧", "Thunderstorm": "⛈", "Snow": "🌨"
+        };
+
+        const linesFormatted = lines.map((line, i) => {
+          const parts = line.split(' ');
+          const condition = parts[0];
+          const temp = parts[1] || '';
+          const precip = parts[2] || '';
+          const icon = emojiMap[condition] || '🌦️';
+          return `${days[i]}: ${icon} ${temp} / 💧${precip}`;
+        });
+
+        const output = `🌦️ ${cityMap[city]} 날씨\n` + linesFormatted.join('\n');
+        el.textContent = output;
       } catch {
-        el.textContent = `🌦️ ${city} 날씨를 불러올 수 없습니다.`;
+        el.textContent = `🌦️ ${cityMap[city]} 날씨를 불러올 수 없습니다.`;
       }
     }
 
