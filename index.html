@@ -170,7 +170,7 @@
     async function fetchForecast(cityKey, el) {
       const city = cityMap[cityKey];
       const apiKey = "d4b02252d2d9d402efead9df7ceda954";
-      const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${city.lat}&lon=${city.lon}&exclude=minutely,hourly,alerts&units=imperial&appid=${apiKey}`;
+      const url = `http://api.openweathermap.org/data/2.5/onecall?lat=${city.lat}&lon=${city.lon}&exclude=minutely,hourly,alerts&units=imperial&appid=${apiKey}`;
 
       try {
         const res = await fetch(url);
