@@ -26,7 +26,10 @@
       padding: .5rem 1rem;
       border-radius: .5rem;
     }
-    .map-btn.kakao { background: #ffe812; color: #111; }
+    .card { background: #111; border: 1px solid #333; padding: 1rem; border-radius: .75rem; margin-bottom: 1rem; box-shadow: 0 1px 2px rgba(255,255,255,.05); }
+    .card h2 { font-size: 1.2rem; margin-bottom: .4rem; color: #f9f9f9; }
+    .card p { margin: .2rem 0; color: #ccc; line-height: 1.4; }
+    .buttons { margin-top: .5rem; }
     .map-btn {
       display: inline-block;
       margin-right: .5rem;
@@ -38,6 +41,41 @@
       text-decoration: none;
       cursor: pointer;
     }
+    .map-btn.kakao { background: #ffe812; color: #111; }
+    .map-btn.naver { background: #03c75a; color: #000; }
+    .map-btn.agoda { background: #e11d48; color: #fff; }
+    .map-btn.lotte { background: #2563eb; color: #fff; }
+    .map-btn:hover { opacity: .9; }
+    ul { padding-left: 1.2rem; margin-top: .5rem; }
+    li a { color: #8fd4ff; text-decoration: underline; }
+    h3 { margin-top: 1rem; color: #fff; }
+    .weather-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      background: #111;
+      padding: 1rem;
+      border-radius: .75rem;
+      margin-bottom: 2rem;
+      border: 1px solid #333;
+    }
+    .weather-block {
+      flex: 1 1 200px;
+      background: #1a1a1a;
+      border-radius: .5rem;
+      padding: 1rem;
+      box-shadow: 0 1px 3px rgba(255,255,255,0.1);
+    }
+    .weather-block h3 {
+      margin: 0 0 .5rem;
+      font-size: 1rem;
+      color: #fff;
+    }
+    .weather-block pre {
+      font-size: .9rem;
+      white-space: pre-wrap;
+      color: #ccc;
+    }
   </style>
 </head>
 <body>
@@ -45,12 +83,26 @@
     <h1>🌸 2025 봄 한국 여행 – 일정 및 지도</h1>
   </header>
 
+  <section class="weather-strip">
+    <div class="weather-block">
+      <h3>서울</h3>
+      <pre id="weather-top-Seoul">불러오는 중...</pre>
+      <pre id="weather-forecast-Seoul"></pre>
+    </div>
+    <div class="weather-block">
+      <h3>광주</h3>
+      <pre id="weather-top-Gwangju">불러오는 중...</pre>
+      <pre id="weather-forecast-Gwangju"></pre>
+    </div>
+  </section>
+
   <div class="card">
     <h2>📍 4월 22–24: 수원</h2>
     <p>🏠 만석로 20번길 25, 청솔마을 SK한화아파트 624동 103호 (장안구)</p>
     <p>🚌 인천공항 → 수원 직행버스 4100</p>
     <div class="buttons">
-      <a class="map-btn kakao" href="#" onclick="window.open('https://map.kakao.com/link/map/수원%20아파트,37.2931,127.0004', '_blank')" rel="noopener noreferrer" target="_blank">Kakao Map</a>
+      <a class="map-btn naver" href="https://map.naver.com/v5/search/만석로 20번길 25" target="_blank">Naver Map</a>
+      <a class="map-btn kakao" href="#" onclick="window.open('https://map.kakao.com/link/map/수원 아파트,37.2931,127.0004', '_blank')" rel="noopener noreferrer">Kakao Map</a>
     </div>
   </div>
 
@@ -59,47 +111,71 @@
     <p>🏠 서강GS아파트 103동 401호, 창전로 26, 마포구</p>
     <p>🚇 Gwangheungchang역 (6호선) Exit 4 → Paris Baguette 지나 좌회전</p>
     <div class="buttons">
-      <a class="map-btn kakao" href="#" onclick="window.open('https://map.kakao.com/link/map/서강GS아파트,37.5472,126.9311', '_blank')" rel="noopener noreferrer" target="_blank">Kakao Map</a>
+      <a class="map-btn naver" href="https://map.naver.com/v5/search/서울 마포구 창전로 26" target="_blank">Naver Map</a>
+      <a class="map-btn kakao" href="#" onclick="window.open('https://map.kakao.com/link/map/서강GS아파트,37.5472,126.9311', '_blank')" rel="noopener noreferrer">Kakao Map</a>
     </div>
+    <h3>추천 식사 (4/24 저녁)</h3>
+    <ul>
+      <li><a href="https://www.diningcode.com/profile.php?rid=c6m8u1fRdQUN" target="_blank">들깨수제비</a></li>
+      <li><a href="https://www.diningcode.com/profile.php?rid=Nd36vJklE9Fo" target="_blank">황금콩밭</a></li>
+      <li><a href="https://blog.naver.com/cozy95/221946990545" target="_blank">DUBU Heaven</a></li>
+    </ul>
+    <h3>스킨케어 클리닉 (4/24 오전)</h3>
+    <ul>
+      <li><a href="https://www.re-ele.com/about/branch.php" target="_blank">re‑ele 클리닉 – 홍대점</a></li>
+    </ul>
   </div>
 
   <div class="card">
     <h2>📍 5월 3: 광주</h2>
     <p>🏨 UTOP 53, 시청로 53, 서구, 광주</p>
+    <p>🚗 LOTTE 렌터카: Gwangju 송정역 지점</p>
     <div class="buttons">
-      <a class="map-btn kakao" href="#" onclick="window.open('https://map.kakao.com/link/map/광주%20UTOP53,35.1525,126.8531', '_blank')" rel="noopener noreferrer" target="_blank">Kakao Map</a>
+      <a class="map-btn agoda" href="https://www.agoda.com/account/editbooking.html?bookingId=R%2B%2FspViUviL5E1xSAAkoLQ%3D%3D" target="_blank">Agoda</a>
+      <a class="map-btn lotte" href="https://www.lotterentacar.net/hp/eng/login/login.do?mnCd=EN06&returnurl=https%253A%252F%252Fwww.lotterentacar.net%252Fhp%252Feng%252FmyPage%252Freservation.do" target="_blank">LOTTE 렌터카</a>
+      <a class="map-btn kakao" href="#" onclick="window.open('https://map.kakao.com/link/map/광주 UTOP53,35.1525,126.8531', '_blank')" rel="noopener noreferrer">Kakao Map</a>
+      <a class="map-btn naver" href="https://map.naver.com/v5/search/광주 서구 시청로 53" target="_blank">Naver Map</a>
     </div>
   </div>
 
   <div class="card">
     <h2>📍 5월 4–6: 보성</h2>
     <p>🏡 1529‑45 Gaegi‑ro, Bongnae‑myeon, Boseong‑gun</p>
+    <p>📖 작가 정찬주와 쌍봉사 일정 <a href="https://naver.me/5BcQ5bh4" target="_blank">(네이버 일정)</a></p>
     <div class="buttons">
-      <a class="map-btn kakao" href="#" onclick="window.open('https://map.kakao.com/link/map/보성%20숙소,34.7638,127.1192', '_blank')" rel="noopener noreferrer" target="_blank">Kakao Map</a>
+      <a class="map-btn agoda" href="https://www.agoda.com/account/editbooking.html?bookingId=nPMw9c7oGlkyO3KAs%2BE3zQ%3D%3D" target="_blank">Agoda</a>
+      <a class="map-btn kakao" href="#" onclick="window.open('https://map.kakao.com/link/map/보성 숙소,34.7638,127.1192', '_blank')" rel="noopener noreferrer">Kakao Map</a>
+      <a class="map-btn naver" href="https://map.naver.com/v5/search/전라남도 보성군 복내면 개기로 1529-45" target="_blank">Naver Map</a>
     </div>
   </div>
 
   <div class="card">
     <h2>📍 5월 6–8: 광주</h2>
     <p>🏨 계속 체류: UTOP 53</p>
+    <p>🚗 LOTTE 렌터카 이용 중</p>
     <div class="buttons">
-      <a class="map-btn kakao" href="#" onclick="window.open('https://map.kakao.com/link/map/광주%20UTOP53,35.1525,126.8531', '_blank')" rel="noopener noreferrer" target="_blank">Kakao Map</a>
+      <a class="map-btn kakao" href="#" onclick="window.open('https://map.kakao.com/link/map/광주 UTOP53,35.1525,126.8531', '_blank')" rel="noopener noreferrer">Kakao Map</a>
+      <a class="map-btn naver" href="https://map.naver.com/v5/search/광주 서구 시청로 53" target="_blank">Naver Map</a>
     </div>
   </div>
 
   <div class="card">
     <h2>📍 5월 7–10: 서울</h2>
     <p>🏠 서강GS아파트 103동 401호</p>
+    <p>🧘‍♂️ 정리 및 복귀 준비</p>
     <div class="buttons">
-      <a class="map-btn kakao" href="#" onclick="window.open('https://map.kakao.com/link/map/서강GS아파트,37.5472,126.9311', '_blank')" rel="noopener noreferrer" target="_blank">Kakao Map</a>
+      <a class="map-btn naver" href="https://map.naver.com/v5/search/서울 마포구 창전로 26" target="_blank">Naver Map</a>
+      <a class="map-btn kakao" href="#" onclick="window.open('https://map.kakao.com/link/map/서강GS아파트,37.5472,126.9311', '_blank')" rel="noopener noreferrer">Kakao Map</a>
     </div>
   </div>
 
   <div class="card">
     <h2>📍 5월 11–13: 수원</h2>
     <p>🏠 만석로 20번길 25, 청솔마을 SK한화아파트 624동 103호</p>
+    <p>🧳 귀국 전 정리</p>
     <div class="buttons">
-      <a class="map-btn kakao" href="#" onclick="window.open('https://map.kakao.com/link/map/수원%20아파트,37.2931,127.0004', '_blank')" rel="noopener noreferrer" target="_blank">Kakao Map</a>
+      <a class="map-btn naver" href="https://map.naver.com/v5/search/만석로 20번길 25" target="_blank">Naver Map</a>
+      <a class="map-btn kakao" href="#" onclick="window.open('https://map.kakao.com/link/map/수원 아파트,37.2931,127.0004', '_blank')" rel="noopener noreferrer">Kakao Map</a>
     </div>
   </div>
 
@@ -110,5 +186,61 @@
     <p>🚌 수원 → 인천공항 리무진버스</p>
   </div>
 
+  <script>
+    const cityData = {
+      Seoul: { label: "서울", query: "Seoul" },
+      Gwangju: { label: "광주", query: "Gwangju" }
+    };
+
+    const emojiMap = [
+      { key: /thunder/i, emoji: "⛈" },
+      { key: /rain|shower/i, emoji: "🌧" },
+      { key: /snow/i, emoji: "🌨" },
+      { key: /cloud|overcast/i, emoji: "☁️" },
+      { key: /partly|few/i, emoji: "⛅" },
+      { key: /sun|clear/i, emoji: "☀️" }
+    ];
+
+    function iconFrom(desc) {
+      const found = emojiMap.find(e => e.key.test(desc));
+      return found ? found.emoji : "🌦️";
+    }
+
+    function getDayName(dateStr) {
+      const days = ['일','월','화','수','목','금','토'];
+      const date = new Date(dateStr);
+      return days[date.getDay()];
+    }
+
+    async function fetchWeather(cityKey) {
+      const { label, query } = cityData[cityKey];
+      const apiKey = "f5b75fbfa3534d7db7a191640251904";
+      const url = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${query}&days=3&lang=ko`;
+
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        const current = data.current;
+        const forecast = data.forecast.forecastday.map(day => {
+          const emoji = iconFrom(day.day.condition.text);
+          const temp = Math.round(day.day.maxtemp_f) + "°F";
+          const chance = day.day.daily_chance_of_rain;
+          const label = getDayName(day.date);
+          return `${label}: ${emoji} ${temp} / 💧${chance}%`;
+        }).join('<br>');
+
+        document.getElementById(`weather-top-${cityKey}`).innerHTML =
+          `${label} / ${Math.round(current.temp_f)}°F / ${iconFrom(current.condition.text)}`;
+        document.getElementById(`weather-forecast-${cityKey}`).innerHTML = forecast;
+      } catch (err) {
+        document.getElementById(`weather-top-${cityKey}`).textContent = `${label} 날씨 오류`;
+        document.getElementById(`weather-forecast-${cityKey}`).textContent = '';
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      Object.keys(cityData).forEach(fetchWeather);
+    });
+  </script>
 </body>
 </html>
