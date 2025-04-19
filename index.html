@@ -167,23 +167,41 @@
       return found ? found.emoji : "🌦️";
     }
 
+    function getDayName(offset) {
+      const days = ['일','월','화','수','목','금','토'];
+      const date = new Date();
+      date.setDate(date.getDate() + offset);
+      return days[date.getDay()];
+    }
+
     async function fetchForecast(cityKey, el) {
       const city = cityMap[cityKey];
       const apiKey = "d4b02252d2d9d402efead9df7ceda954";
-      const url = `http://api.openweathermap.org/data/2.5/onecall?lat=${city.lat}&lon=${city.lon}&exclude=minutely,hourly,alerts&units=imperial&appid=${apiKey}`;
+      const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&units=imperial&appid=${apiKey}`;
 
       try {
         const res = await fetch(url);
         const data = await res.json();
-        const days = ['월', '화', '수'];
-        const forecast = data.daily.slice(0, 3).map((day, i) => {
-          const temp = Math.round(day.temp.max) + "°F";
-          const chance = day.pop ? Math.round(day.pop * 100) : 0;
-          const desc = day.weather[0].description;
-          const emoji = iconFrom(desc);
-          return `${days[i]}: ${emoji} ${temp} / 💧${chance}%`;
+        const daily = {};
+
+        data.list.forEach(f => {
+          const date = f.dt_txt.split(" ")[0];
+          if (!daily[date]) daily[date] = { temps: [], pops: [], descs: [] };
+          daily[date].temps.push(f.main.temp_max);
+          daily[date].pops.push(f.pop);
+          daily[date].descs.push(f.weather[0].description);
         });
-        el.textContent = `🌦️ ${city.name} 날씨\n` + forecast.join('\n');
+
+        const entries = Object.entries(daily).slice(0, 3);
+        const forecast = entries.map(([date, obj], i) => {
+          const temp = Math.round(Math.max(...obj.temps)) + "°F";
+          const chance = Math.round(Math.max(...obj.pops) * 100);
+          const desc = obj.descs[4] || obj.descs[0];
+          const emoji = iconFrom(desc);
+          return `${getDayName(i)}: ${emoji} ${temp} / 💧${chance}%`;
+        });
+
+        el.textContent = `🌦️ ${city.name} 날씨\n` + forecast.join("\n");
       } catch (e) {
         el.textContent = `🌦️ ${city.name} 날씨를 불러올 수 없습니다.`;
       }
