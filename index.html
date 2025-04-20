@@ -107,6 +107,28 @@
 <body>
   <main style="max-width: 800px; margin: auto; padding-bottom: 3rem;">
     <section style="margin-bottom: 2rem; border-left: 4px solid #ffe812; padding-left: 1rem;">
+      <h2 style="font-size: 1.5rem; color: #fff; margin: 0 0 .5rem;">✈️ Arrival: Appleton to Seoul</h2>
+    </section>
+    <div class="card">
+      <h2>📍 4월 21–22: Arrival in Seoul ✈️</h2>
+      <p>✈️ Appleton (ATW) → Minneapolis (MSP) → Seoul-Incheon (ICN)</p>
+      <p>🕕 Total Duration: 21h 0m</p>
+      <h3>Segment 1: DL4949 (ATW → MSP)</h3>
+      <p>🛫 Depart: 6:20 AM, Mon, Apr 21, Appleton, WI (ATW), Terminal TBD</p>
+      <p>✈️ Aircraft: Canadair Regional Jet 900 (Operated by Endeavor Air)</p>
+      <p>💺 Seat: 16B (Main Cabin)</p>
+      <h3>Layover: Minneapolis (MSP)</h3>
+      <p>⏳ Duration: 5h 40m</p>
+      <h3>Segment 2: DL0171 (MSP → ICN)</h3>
+      <p>🛫 Depart: Minneapolis (MSP)</p>
+      <p>🛬 Arrive: 5:20 PM, Tue, Apr 22, Seoul-Incheon, South Korea (ICN), Terminal 2, Gate 258</p>
+      <p>✈️ Aircraft: Airbus A350-900</p>
+      <p>💺 Seat: 32C (Delta Comfort+)</p>
+      <p>🧳 Baggage Info: Check Delta’s <a href="https://www.delta.com/us/en/baggage/overview" target="_blank">Baggage Information</a></p>
+      <p>🍽️ Sky Club: Find locations at <a href="https://www.delta.com/us/en/delta-sky-club/locations" target="_blank">Delta Sky Club</a></p>
+    </div>
+
+    <section style="margin-bottom: 2rem; border-left: 4px solid #ffe812; padding-left: 1rem;">
       <h2 style="font-size: 1.5rem; color: #fff; margin: 0 0 .5rem;">📆 Week 1: 수원 + 서울</h2>
     </section>
     <header class="hero">
@@ -236,10 +258,21 @@
     </div>
 
     <div class="card">
-      <h2>📍 5월 13: 귀국 ✈️</h2>
-      <p>✈️ 인천 (ICN) → Minneapolis (MSP) → Appleton (ATW)</p>
-      <p>🕕 DL0170 (ICN 6:40 PM) + DL4002 / 도착 9:24 PM (ATW)</p>
-      <p>🚌 수원 → 인천공항 리무진버스</p>
+      <h2>📍 5월 13: Departure from Seoul ✈️</h2>
+      <p>✈️ Seoul-Incheon (ICN) → Minneapolis (MSP) → Appleton (ATW)</p>
+      <p>🕕 Total Duration: 16h 44m</p>
+      <h3>Segment 1: DL0170 (ICN → MSP)</h3>
+      <p>🛫 Depart: 6:40 PM, Tue, May 13, Seoul-Incheon, South Korea (ICN), Terminal 2, Gate TBD</p>
+      <p>✈️ Aircraft: Airbus A350-900</p>
+      <p>💺 Seat: 23D (Delta Premium Select)</p>
+      <h3>Layover: Minneapolis (MSP)</h3>
+      <p>⏳ Duration: 3h 10m</p>
+      <h3>Segment 2: DL4002 (MSP → ATW)</h3>
+      <p>🛬 Arrive: 9:24 PM, Tue, May 13, Appleton, WI (ATW), Terminal TBD, Gate TBD</p>
+      <p>✈️ Aircraft: Canadair Regional Jet 900 (Operated by Endeavor Air)</p>
+      <p>💺 Seat: 11B (Main Cabin)</p>
+      <p>🧳 Baggage Info: Check Delta’s <a href="https://www.delta.com/us/en/baggage/overview" target="_blank">Baggage Information</a></p>
+      <p>🚌 Transfer: 수원 → 인천공항 리무진버스</p>
     </div>
 
     <button onclick="location.reload()" style="position: fixed; bottom: 4.5rem; right: 1.5rem; background: #ffe812; color: #111; border: none; padding: 0.7rem 1rem; font-weight: bold; border-radius: 999px; box-shadow: 0 0 8px rgba(255,255,255,0.1); cursor: pointer;">🔄 새로고침</button>
@@ -291,7 +324,8 @@
 
     function getDayName(offset = 0) {
       const days = ['일', '월', '화', '수', '목', '금', '토'];
-      const date = new Date();
+      // Use KST explicitly to avoid client time zone issues
+      const date = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Seoul' }));
       date.setDate(date.getDate() + offset);
       return days[date.getDay()];
     }
@@ -310,7 +344,7 @@
           const emoji = iconFrom(day.day.condition.text);
           const temp = Math.round(day.day.maxtemp_f) + "°F";
           const chance = day.day.daily_chance_of_rain;
-          const label = getDayName(index); // Today, tomorrow, day after
+          const label = getDayName(index);
           return `${label}: ${emoji} ${temp} / 💧${chance}%`;
         }).join('<br>');
 
@@ -325,12 +359,19 @@
       }
     }
 
-    window.addEventListener('DOMContentLoaded', () => {
+    function updateAllWeather() {
       Object.keys(cityData).forEach(cityKey => {
         fetchWeather(cityKey).catch(err => {
-          console.error(`Error initializing weather for ${cityKey}:`, err);
+          console.error(`Error fetching weather for ${cityKey}:`, err);
         });
       });
+    }
+
+    // Initial fetch on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      updateAllWeather();
+      // Refresh weather every 30 minutes (1800000 ms)
+      setInterval(updateAllWeather, 1800000);
     });
   </script>
 </body>
