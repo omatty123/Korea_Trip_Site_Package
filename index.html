@@ -11,16 +11,16 @@
   <link rel="apple-touch-icon" href="icon180.png" />
   <style>
     body {
-  font-family: 'Inter', sans-serif;
-  background: #000;
-  color: #e5e5e5;
-  margin: 0;
-  padding: 2rem 1rem;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
-}
+      font-family: 'Inter', sans-serif;
+      background: #000;
+      color: #e5e5e5;
+      margin: 0;
+      padding: 2rem 1rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+    }
     .hero {
       background: url('musung.jpg') center/cover no-repeat;
       height: 200px;
@@ -31,36 +31,36 @@
       justify-content: center;
     }
     .hero h1 {
-  font-size: 2rem;
-  color: white;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 0.75rem 1.25rem;
-  border-radius: 0.75rem;
-}
+      font-size: 2rem;
+      color: white;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.75rem;
+    }
     .card {
-  background: #111;
-  border: 1px solid #2a2a2a;
-  padding: 1.5rem;
-  border-radius: 1rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 2px 4px rgba(255,255,255,0.05);
-}
+      background: #111;
+      border: 1px solid #2a2a2a;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 4px rgba(255,255,255,0.05);
+    }
     .card h2 { font-size: 1.2rem; margin-bottom: .4rem; color: #f9f9f9; }
     .card p { margin: .2rem 0; color: #ccc; line-height: 1.4; }
     .buttons { margin-top: .5rem; }
     .map-btn {
-  display: inline-block;
-  margin-right: .6rem;
-  margin-bottom: .4rem;
-  padding: .5rem 1rem;
-  font-size: .95rem;
-  font-weight: 600;
-  border: none;
-  border-radius: .5rem;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
+      display: inline-block;
+      margin-right: .6rem;
+      margin-bottom: .4rem;
+      padding: .5rem 1rem;
+      font-size: .95rem;
+      font-weight: 600;
+      border: none;
+      border-radius: .5rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
     .map-btn.kakao { background: #ffe812; color: #111; }
     .map-btn.naver { background: #03c75a; color: #000; }
     .map-btn.agoda { background: #e11d48; color: #fff; }
@@ -96,157 +96,167 @@
       white-space: pre-wrap;
       color: #ccc;
     }
-  @media (max-width: 480px) {
-  body { font-size: 1rem; }
-  .card h2 { font-size: 1.1rem; }
-  .map-btn { font-size: 0.85rem; padding: 0.4rem 0.8rem; }
-}
-</style>
+    @media (max-width: 480px) {
+      body { font-size: 1rem; }
+      .card h2 { font-size: 1.1rem; }
+      .map-btn { font-size: 0.85rem; padding: 0.4rem 0.8rem; }
+    }
+  </style>
 </head>
 <body>
   <main style="max-width: 800px; margin: auto; padding-bottom: 3rem;">
     <section style="margin-bottom: 2rem; border-left: 4px solid #ffe812; padding-left: 1rem;">
       <h2 style="font-size: 1.5rem; color: #fff; margin: 0 0 .5rem;">📆 Week 1: 수원 + 서울</h2>
     </section>
-  <header class="hero">
-    <h1>🌸 2025 봄 한국 여행 – 일정 및 지도</h1>
-  </header>
+    <header class="hero">
+      <h1>🌸 2025 봄 한국 여행 – 일정 및 지도</h1>
+    </header>
 
-  <section class="weather-strip">
-    <div class="weather-block">
-      <h3>서울</h3>
-      <pre id="weather-top-Seoul">불러오는 중...</pre>
-      <pre id="weather-forecast-Seoul"></pre>
-    </div>
-    <div class="weather-block">
-      <h3>광주</h3>
-      <pre id="weather-top-Gwangju">불러오는 중...</pre>
-      <pre id="weather-forecast-Gwangju"></pre>
-    </div>
-  </section>
+    <section class="weather-strip">
+      <div class="weather-block">
+        <h3>서울</h3>
+        <pre id="weather-top-Seoul">불러오는 중...</pre>
+        <pre id="weather-forecast-Seoul"></pre>
+      </div>
+      <div class="weather-block">
+        <h3>광주</h3>
+        <pre id="weather-top-Gwangju">불러오는 중...</pre>
+        <pre id="weather-forecast-Gwangju"></pre>
+      </div>
+    </section>
 
-  <div class="card">
-    <h2>📍 4월 22–24: 수원 ☀️</h2>
-    <p>🏠 만석로 20번길 25, 청솔마을 SK한화아파트 624동 103호 (장안구)</p>
-    <p>🚌 인천공항 → 수원 직행버스 4100</p>
-    <div class="buttons">
-      <a class="map-btn naver" href="https://map.naver.com/v5/search/만석로 20번길 25" target="_blank">Naver Map</a>
-      <a class="map-btn kakao" href="kakaomap://search?q=수원 만석로 20번길 25" data-fallback="https://map.kakao.com/link/search/수원 만석로 20번길 25">Kakao Map</a>
+    <div class="card">
+      <h2>📍 4월 22–24: 수원 ☀️</h2>
+      <p>🏠 만석로 20번길 25, 청솔마을 SK한화아파트 624동 103호 (장안구)</p>
+      <p>🚌 인천공항 → 수원 직행버스 4100</p>
+      <div class="buttons">
+        <a class="map-btn naver" href="https://map.naver.com/v5/search/만석로%2020번길%2025" target="_blank">Naver Map</a>
+        <a class="map-btn kakao" href="kakaomap://search?q=수원%20만석로%2020번길%2025" data-fallback="https://map.kakao.com/link/search/수원%20만석로%2020번길%2025">Kakao Map</a>
+      </div>
     </div>
-  </div>
 
-  <div class="card">
-    <h2>📍 4월 24 – 5월 3: 서울 ☁️</h2>
-    <p>🏠 서강GS아파트 103동 401호, 창전로 26, 마포구</p>
-    <p>🚇 Gwangheungchang역 (6호선) Exit 4 → Paris Baguette 지나 좌회전</p>
-    <div class="buttons">
-      <a class="map-btn naver" href="https://map.naver.com/v5/search/서울 마포구 창전로 26" target="_blank">Naver Map</a>
-      <a class="map-btn kakao" href="kakaomap://search?q=서강GS아파트,37.5472,126.9311" data-fallback="https://map.kakao.com/link/search/서강GS아파트,37.5472,126.9311">Kakao Map</a>
+    <div class="card">
+      <h2>📍 4월 24 – 5월 3: 서울 ☁️</h2>
+      <p>🏠 서강GS아파트 103동 401호, 창전로 26, 마포구</p>
+      <p>🚇 Gwangheungchang역 (6호선) Exit 4 → Paris Baguette 지나 좌회전</p>
+      <div class="buttons">
+        <a class="map-btn naver" href="https://map.naver.com/v5/search/서울%20마포구%20창전로%2026" target="_blank">Naver Map</a>
+        <a class="map-btn kakao" href="kakaomap://search?q=서울%20마포구%20창전로%2026" data-fallback="https://map.kakao.com/link/search/서울%20마포구%20창전로%2026">Kakao Map</a>
+      </div>
+      <h3>추천 식사 (4/24 저녁)</h3>
+      <ul>
+        <li><a href="https://www.diningcode.com/profile.php?rid=c6m8u1fRdQUN" target="_blank">들깨수제비</a></li>
+        <li><a href="https://www.diningcode.com/profile.php?rid=Nd36vJklE9Fo" target="_blank">황금콩밭</a></li>
+        <li><a href="https://blog.naver.com/cozy95/221946990545" target="_blank">DUBU Heaven</a></li>
+      </ul>
+      <h3>스킨케어 클리닉 (4/24 오전)</h3>
+      <ul>
+        <li><a href="https://www.re-ele.com/about/branch.php" target="_blank">re‑ele 클리닉 – 홍대점</a></li>
+      </ul>
     </div>
-    <h3>추천 식사 (4/24 저녁)</h3>
-    <ul>
-      <li><a href="https://www.diningcode.com/profile.php?rid=c6m8u1fRdQUN" target="_blank">들깨수제비</a></li>
-      <li><a href="https://www.diningcode.com/profile.php?rid=Nd36vJklE9Fo" target="_blank">황금콩밭</a></li>
-      <li><a href="https://blog.naver.com/cozy95/221946990545" target="_blank">DUBU Heaven</a></li>
-    </ul>
-    <h3>스킨케어 클리닉 (4/24 오전)</h3>
-    <ul>
-      <li><a href="https://www.re-ele.com/about/branch.php" target="_blank">re‑ele 클리닉 – 홍대점</a></li>
-    </ul>
-  </div>
 
-  <section style="margin-bottom: 2rem; border-left: 4px solid #ffe812; padding-left: 1rem;">
+    <section style="margin-bottom: 2rem; border-left: 4px solid #ffe812; padding-left: 1rem;">
       <h2 style="font-size: 1.5rem; color: #fff; margin: 2rem 0 .5rem;">📆 Week 2: 광주 + 보성</h2>
     </section>
     <div class="card">
       <h2>📍 5월 3: 광주 (Gwangju) 🌤</h2>
-    <p>🏨 UTOP 53, 시청로 53, 서구, 광주</p>
-    <p>🚗 LOTTE 렌터카: Gwangju 송정역 지점</p>
-    <p>📍 광주광역시 광산구 상무대로205번길 6, 3층 (롯데렌터카)<br>3F, 6 Sangmu-daero 205beon-gil, Gwangsan-gu, Gwangju</p>
-    <div class="buttons">
-      <a class="map-btn agoda" href="https://www.agoda.com/account/editbooking.html?bookingId=R%2B%2FspViUviL5E1xSAAkoLQ%3D%3D" target="_blank">Agoda</a>
-      <a class="map-btn lotte" href="https://www.lotterentacar.net/hp/eng/login/login.do?mnCd=EN06&returnurl=https%253A%252F%252Fwww.lotterentacar.net%252Fhp%252Feng%252FmyPage%252Freservation.do" target="_blank">LOTTE 렌터카</a>
+      <p>🏨 UTOP 53, 시청로 53, 서구, 광주</p>
+      <p>🚗 LOTTE 렌터카: Gwangju 송정역 지점</p>
+      <p>📍 광주광역시 광산구 상무대로205번길 6, 3층 (롯데렌터카)<br>3F, 6 Sangmu-daero 205beon-gil, Gwangsan-gu, Gwangju</p>
+      <div class="buttons">
+        <a class="map-btn agoda" href="https://www.agoda.com/account/editbooking.html?bookingId=R%2B%2FspViUviL5E1xSAAkoLQ%3D%3D" target="_blank">Agoda</a>
+        <a class="map-btn lotte" href="https://www.lotterentacar.net/hp/eng/login/login.do?mnCd=EN06&returnurl=https%253A%252F%252Fwww.lotterentacar.net%252Fhp%252Feng%252FmyPage%252Freservation.do" target="_blank">LOTTE 렌터카</a>
+      </div>
+      <div class="buttons">
+        <strong>🏨 UTOP 53 지도:</strong>
+        <a class="map-btn kakao" href="kakaomap://search?q=광주%20서구%20시청로%2053" data-fallback="https://map.kakao.com/link/search/광주%20서구%20시청로%2053">Kakao Map</a>
+        <a class="map-btn naver" href="https://map.naver.com/v5/search/광주%20서구%20시청로%2053" target="_blank">Naver Map</a>
+      </div>
+      <div class="buttons">
+        <strong>🚗 렌터카 지점 지도:</strong>
+        <a class="map-btn kakao" href="kakaomap://search?q=광주%20광산구%20상무대로205번길%206" data-fallback="https://map.kakao.com/link/search/광주%20광산구%20상무대로205번길%206">Kakao Map</a>
+        <a class="map-btn naver" href="https://map.naver.com/v5/search/광주%20광산구%20상무대로205번길%206" target="_blank">Naver Map</a>
+      </div>
     </div>
-    <div class="buttons">
-      <strong>🏨 UTOP 53 지도:</strong>
-      <a class="map-btn kakao" href="kakaomap://search?q=광주 UTOP53,35.1525,126.8531" data-fallback="https://map.kakao.com/link/search/광주 UTOP53,35.1525,126.8531">Kakao Map</a>
-      <a class="map-btn naver" href="https://map.naver.com/v5/search/광주 서구 시청로 53" target="_blank">Naver Map</a>
-    </div>
-    <div class="buttons">
-      <strong>🚗 렌터카 지점 지도:</strong>
-      <a class="map-btn kakao" href="kakaomap://search?q=광산구 상무대로205번길 6" data-fallback="https://map.kakao.com/link/search/광산구 상무대로205번길 6">Kakao Map</a>
-      <a class="map-btn naver" href="https://map.naver.com/v5/search/광산구 상무대로205번길 6" target="_blank">Naver Map</a>
-    </div>
-  </div>
-  </div>
-  </div>
 
-  <div class="card">
-    <h2>📍 5월 4–6: 보성 🌧</h2>
-    <p>🏡 1529‑45 Gaegi‑ro, Bongnae‑myeon, Boseong‑gun</p>
-    <p>📖 작가 정찬주와 쌍봉사 일정 <a href="https://naver.me/5BcQ5bh4" target="_blank">(네이버 일정)</a></p>
-    <div class="buttons">
-      <a class="map-btn agoda" href="https://www.agoda.com/account/editbooking.html?bookingId=nPMw9c7oGlkyO3KAs%2BE3zQ%3D%3D" target="_blank">Agoda</a>
-      <a class="map-btn kakao" href="kakaomap://search?q=보성 숙소,34.7638,127.1192" data-fallback="https://map.kakao.com/link/search/보성 숙소,34.7638,127.1192">Kakao Map</a>
-      <a class="map-btn naver" href="https://map.naver.com/v5/search/전라남도 보성군 복내면 개기로 1529-45" target="_blank">Naver Map</a>
+    <div class="card">
+      <h2>📍 5월 4–6: 보성 🌧</h2>
+      <p>🏡 1529‑45 Gaegi‑ro, Bongnae‑myeon, Boseong‑gun</p>
+      <p>📖 작가 정찬주와 쌍봉사 일정 <a href="https://naver.me/5BcQ5bh4" target="_blank">(네이버 일정)</a></p>
+      <div class="buttons">
+        <a class="map-btn agoda" href="https://www.agoda.com/account/editbooking.html?bookingId=nPMw9c7oGlkyO3KAs%2BE3zQ%3D%3D" target="_blank">Agoda</a>
+        <a class="map-btn kakao" href="kakaomap://search?q=전라남도%20보성군%20복내면%20개기로%201529-45" data-fallback="https://map.kakao.com/link/search/전라남도%20보성군%20복내면%20개기로%201529-45">Kakao Map</a>
+        <a class="map-btn naver" href="https://map.naver.com/v5/search/전라남도%20보성군%20복내면%20개기로%201529-45" target="_blank">Naver Map</a>
+      </div>
     </div>
-  </div>
 
-  <div class="card">
-    <h2>📍 5월 6–8: 광주 🌦️</h2>
-    <p>🏨 계속 체류: UTOP 53</p>
-    <p>🚗 LOTTE 렌터카 이용 중</p>
-    <div class="buttons">
-      <a class="map-btn kakao" href="kakaomap://search?q=광주 UTOP53,35.1525,126.8531" data-fallback="https://map.kakao.com/link/search/광주 UTOP53,35.1525,126.8531">Kakao Map</a>
-      <a class="map-btn naver" href="https://map.naver.com/v5/search/광주 서구 시청로 53" target="_blank">Naver Map</a>
+    <div class="card">
+      <h2>📍 5월 6–8: 광주 🌦️</h2>
+      <p>🏨 계속 체류: UTOP 53</p>
+      <p>🚗 LOTTE 렌터카 이용 중</p>
+      <div class="buttons">
+        <a class="map-btn kakao" href="kakaomap://search?q=광주%20서구%20시청로%2053" data-fallback="https://map.kakao.com/link/search/광주%20서구%20시청로%2053">Kakao Map</a>
+        <a class="map-btn naver" href="https://map.naver.com/v5/search/광주%20서구%20시청로%2053" target="_blank">Naver Map</a>
+      </div>
     </div>
-  </div>
 
-  <section style="margin-bottom: 2rem; border-left: 4px solid #ffe812; padding-left: 1rem;">
+    <section style="margin-bottom: 2rem; border-left: 4px solid #ffe812; padding-left: 1rem;">
       <h2 style="font-size: 1.5rem; color: #fff; margin: 2rem 0 .5rem;">📆 Week 3: 서울 + 수원 + 귀국</h2>
     </section>
     <div class="card">
       <h2>📍 5월 7–10: 서울 ☀️</h2>
-    <p>🏠 서강GS아파트 103동 401호</p>
-    <p>🧘‍♂️ 정리 및 복귀 준비</p>
-    <div class="buttons">
-      <a class="map-btn naver" href="https://map.naver.com/v5/search/서울 마포구 창전로 26" target="_blank">Naver Map</a>
-      <a class="map-btn kakao" href="kakaomap://search?q=서강GS아파트,37.5472,126.9311" data-fallback="https://map.kakao.com/link/search/서강GS아파트,37.5472,126.9311">Kakao Map</a>
+      <p>🏠 서강GS아파트 103동 401호</p>
+      <p>🧘‍♂️ 정리 및 복귀 준비</p>
+      <div class="buttons">
+        <a class="map-btn naver" href="https://map.naver.com/v5/search/서울%20마포구%20창전로%2026" target="_blank">Naver Map</a>
+        <a class="map-btn kakao" href="kakaomap://search?q=서울%20마포구%20창전로%2026" data-fallback="https://map.kakao.com/link/search/서울%20마포구%20창전로%2026">Kakao Map</a>
+      </div>
     </div>
-  </div>
 
-  <div class="card">
-    <h2>📍 5월 11–13: 수원 ⛅</h2>
-    <p>🏠 만석로 20번길 25, 청솔마을 SK한화아파트 624동 103호</p>
-    <p>🧳 귀국 전 정리</p>
-    <div class="buttons">
-      <a class="map-btn naver" href="https://map.naver.com/v5/search/만석로 20번길 25" target="_blank">Naver Map</a>
-      <a class="map-btn kakao" href="kakaomap://search?q=수원 만석로 20번길 25" data-fallback="https://map.kakao.com/link/search/수원 만석로 20번길 25">Kakao Map</a>
+    <div class="card">
+      <h2>📍 5월 11–13: 수원 ⛅</h2>
+      <p>🏠 만석로 20번길 25, 청솔마을 SK한화아파트 624동 103호</p>
+      <p>🧳 귀국 전 정리</p>
+      <div class="buttons">
+        <a class="map-btn naver" href="https://map.naver.com/v5/search/만석로%2020번길%2025" target="_blank">Naver Map</a>
+        <a class="map-btn kakao" href="kakaomap://search?q=수원%20만석로%2020번길%2025" data-fallback="https://map.kakao.com/link/search/수원%20만석로%2020번길%2025">Kakao Map</a>
+      </div>
     </div>
-  </div>
 
-  <div class="card">
-    <h2>📍 5월 13: 귀국 ✈️</h2>
-    <p>✈️ 인천 (ICN) → Minneapolis (MSP) → Appleton (ATW)</p>
-    <p>🕕 DL0170 (ICN 6:40 PM) + DL4002 / 도착 9:24 PM (ATW)</p>
-    <p>🚌 수원 → 인천공항 리무진버스</p>
-  </div>
+    <div class="card">
+      <h2>📍 5월 13: 귀국 ✈️</h2>
+      <p>✈️ 인천 (ICN) → Minneapolis (MSP) → Appleton (ATW)</p>
+      <p>🕕 DL0170 (ICN 6:40 PM) + DL4002 / 도착 9:24 PM (ATW)</p>
+      <p>🚌 수원 → 인천공항 리무진버스</p>
+    </div>
+
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="position: fixed; bottom: 1.5rem; right: 1.5rem; background: #ffe812; color: #111; border: none; padding: 0.7rem 1rem; font-weight: bold; border-radius: 999px; box-shadow: 0 0 8px rgba(255,255,255,0.1); cursor: pointer;">⬆️ TOP</button>
+  </main>
 
   <script>
-    // KakaoMap fallback script
+    // Kakao Map fallback script
     document.querySelectorAll('.map-btn.kakao').forEach(link => {
       link.addEventListener('click', (e) => {
+        e.preventDefault();
         const appUrl = link.getAttribute('href');
         const webUrl = link.dataset.fallback;
-        if (!appUrl || !webUrl) return;
-        e.preventDefault();
-        window.location = appUrl;
-        setTimeout(() => {
+        if (!appUrl || !webUrl) {
+          console.error('Kakao Map link missing appUrl or webUrl:', link);
+          return;
+        }
+        try {
+          window.location = appUrl;
+          setTimeout(() => {
+            window.location = webUrl;
+          }, 750); // Increased timeout for better reliability
+        } catch (err) {
+          console.error('Kakao Map redirect error:', err);
           window.location = webUrl;
-        }, 500);
+        }
       });
     });
 
+    // Weather widget logic
     const cityData = {
       Seoul: { label: "서울", query: "Seoul" },
       Gwangju: { label: "광주", query: "Gwangju" }
@@ -268,8 +278,7 @@
 
     function getDayName(dateStr) {
       const days = ['일','월','화','수','목','금','토'];
-      const date = new Date(dateStr);
-      return days[date.getDay()];
+      return days[new Date(dateStr).getDay()];
     }
 
     async function fetchWeather(cityKey) {
@@ -278,7 +287,8 @@
       const url = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${query}&days=3&lang=ko`;
 
       try {
-        const res = await fetch(url);
+        const res = await fetch(url, { mode: 'cors' });
+        if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         const data = await res.json();
         const current = data.current;
         const forecast = data.forecast.forecastday.map(day => {
@@ -293,16 +303,19 @@
           `${label} / ${Math.round(current.temp_f)}°F / ${iconFrom(current.condition.text)}`;
         document.getElementById(`weather-forecast-${cityKey}`).innerHTML = forecast;
       } catch (err) {
+        console.error(`Weather fetch error for ${label}:`, err);
         document.getElementById(`weather-top-${cityKey}`).textContent = `${label} 날씨 오류`;
-        document.getElementById(`weather-forecast-${cityKey}`).textContent = '';
+        document.getElementById(`weather-forecast-${cityKey}`).textContent = '날씨 데이터를 불러올 수 없습니다.';
       }
     }
 
     window.addEventListener('DOMContentLoaded', () => {
-      Object.keys(cityData).forEach(fetchWeather);
+      Object.keys(cityData).forEach(cityKey => {
+        fetchWeather(cityKey).catch(err => {
+          console.error(`Error initializing weather for ${cityKey}:`, err);
+        });
+      });
     });
   </script>
-  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="position: fixed; bottom: 1.5rem; right: 1.5rem; background: #ffe812; color: #111; border: none; padding: 0.7rem 1rem; font-weight: bold; border-radius: 999px; box-shadow: 0 0 8px rgba(255,255,255,0.1); cursor: pointer;">⬆️ TOP</button>
-</main>
 </body>
 </html>
