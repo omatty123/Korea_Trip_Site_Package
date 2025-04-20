@@ -68,6 +68,7 @@
     .map-btn:hover { opacity: .9; }
     ul { padding-left: 1.2rem; margin-top: .5rem; }
     li a { color: #8fd4ff; text-decoration: underline; }
+    li .map-btn { margin-left: 0.5rem; }
     h3 { margin-top: 1rem; color: #fff; }
     .weather-strip {
       display: flex;
@@ -151,7 +152,18 @@
       </ul>
       <h3>스킨케어 클리닉 (4/24 오전)</h3>
       <ul>
-        <li><a href="https://www.re-ele.com/about/branch.php" target="_blank">re‑ele 클리닉 – 홍대점</a></li>
+        <li><a href="https://www.re-ele.com/about/branch.php" target="_blank">re-ele 클리닉 – 홍대점</a></li>
+      </ul>
+      <h3>🗲️ 기타 서울 방문지</h3>
+      <ul>
+        <li>길상사<br>
+          <a class="map-btn kakao" href="kakaomap://search?q=길상사" data-fallback="https://map.kakao.com/link/search/길상사">Kakao Map</a>
+          <a class="map-btn naver" href="https://map.naver.com/v5/search/길상사" target="_blank">Naver Map</a>
+        </li>
+        <li>조계사<br>
+          <a class="map-btn kakao" href="kakaomap://search?q=조계사" data-fallback="https://map.kakao.com/link/search/조계사">Kakao Map</a>
+          <a class="map-btn naver" href="https://map.naver.com/v5/search/조계사" target="_blank">Naver Map</a>
+        </li>
       </ul>
     </div>
 
@@ -230,6 +242,7 @@
       <p>🚌 수원 → 인천공항 리무진버스</p>
     </div>
 
+    <button onclick="location.reload()" style="position: fixed; bottom: 4.5rem; right: 1.5rem; background: #ffe812; color: #111; border: none; padding: 0.7rem 1rem; font-weight: bold; border-radius: 999px; box-shadow: 0 0 8px rgba(255,255,255,0.1); cursor: pointer;">🔄 새로고침</button>
     <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="position: fixed; bottom: 1.5rem; right: 1.5rem; background: #ffe812; color: #111; border: none; padding: 0.7rem 1rem; font-weight: bold; border-radius: 999px; box-shadow: 0 0 8px rgba(255,255,255,0.1); cursor: pointer;">⬆️ TOP</button>
   </main>
 
