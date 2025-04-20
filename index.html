@@ -248,7 +248,7 @@
           window.location = appUrl;
           setTimeout(() => {
             window.location = webUrl;
-          }, 750); // Increased timeout for better reliability
+          }, 750);
         } catch (err) {
           console.error('Kakao Map redirect error:', err);
           window.location = webUrl;
@@ -276,14 +276,16 @@
       return found ? found.emoji : "🌦️";
     }
 
-    function getDayName(dateStr) {
-      const days = ['일','월','화','수','목','금','토'];
-      return days[new Date(dateStr).getDay()];
+    function getDayName(offset = 0) {
+      const days = ['일', '월', '화', '수', '목', '금', '토'];
+      const date = new Date();
+      date.setDate(date.getDate() + offset);
+      return days[date.getDay()];
     }
 
     async function fetchWeather(cityKey) {
       const { label, query } = cityData[cityKey];
-      const apiKey = "f5b75fbfa3534d7db7a191640251904";
+      const apiKey = "f5b75fbfa3534d7db7a191640251904"; // Your provided API key
       const url = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${query}&days=3&lang=ko`;
 
       try {
@@ -291,11 +293,11 @@
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         const data = await res.json();
         const current = data.current;
-        const forecast = data.forecast.forecastday.map(day => {
+        const forecast = data.forecast.forecastday.map((day, index) => {
           const emoji = iconFrom(day.day.condition.text);
           const temp = Math.round(day.day.maxtemp_f) + "°F";
           const chance = day.day.daily_chance_of_rain;
-          const label = getDayName(day.date);
+          const label = getDayName(index); // Today, tomorrow, day after
           return `${label}: ${emoji} ${temp} / 💧${chance}%`;
         }).join('<br>');
 
@@ -305,7 +307,8 @@
       } catch (err) {
         console.error(`Weather fetch error for ${label}:`, err);
         document.getElementById(`weather-top-${cityKey}`).textContent = `${label} 날씨 오류`;
-        document.getElementById(`weather-forecast-${cityKey}`).textContent = '날씨 데이터를 불러올 수 없습니다.';
+        document.getElementById(`weather-forecast-${cityKey}`).innerHTML = 
+          '날씨 데이터를 불러올 수 없습니다. <a href="https://www.weatherapi.com/weather/q/' + query + '" target="_blank">여기에서 확인하세요</a>.';
       }
     }
 
